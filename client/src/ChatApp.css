@@ -1,0 +1,692 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('data:image/jpeg;base64,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');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+/* dark mode looking scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #121212;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #242424;
+}
+
+/* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Additional styles for ChatApp.css */
+
+.app-container {
+  padding: 1rem; /* Padding */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Additional styles for ChatApp.css */
+
+.home-container {
+  display: flex;
+  height: 100%;
+  max-height: 550px; /* You can adjust this as needed */
+  border-radius: 0.5rem; /* Rounded-lg */
+  overflow: hidden;
+  background-color: rgba(64, 64, 64, 0.5); /* Gray with transparency */
+  backdrop-filter: blur(10px); /* Adjust as needed */
+  background-clip: padding-box; /* Ensure background applies only to padding box */
+}
+
+/* Additional styles for ChatApp.css */
+
+.sidebar-container {
+  border-right: 1px solid #64748b; /* Slate-500 */
+  padding: 1rem; /* Padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  padding-left: 0.75rem; /* Adjust as needed */
+  padding-right: 0.75rem; /* Adjust as needed */
+}
+/* Additional styles for ChatApp.css */
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust as needed */
+}
+
+.search-input {
+  border: 1px solid #d1d5db; /* Border color (input-bordered) */
+  border-radius: 9999px; /* Rounded-full */
+  padding: 0.5rem; /* Adjust as needed */
+}
+
+.search-button {
+  border: none;
+  border-radius: 50%; /* Circle shape */
+  background-color: #0ea5e9; /* Sky-500 */
+  color: white;
+  padding: 0.5rem; /* Adjust as needed */
+}
+
+.search-icon {
+  width: 1.5rem; /* Adjust as needed */
+  height: 1.5rem; /* Adjust as needed */
+}
+/* Additional styles for ChatApp.css */
+
+.conversations-container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding-top: 0.5rem; /* Adjust as needed */
+  padding-bottom: 0.5rem; /* Adjust as needed */
+}
+
+/* .loading-spinner {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* Additional styles for ChatApp.css */
+
+.logout-button-container {
+  margin-top: auto;
+}
+
+.logout-icon {
+  width: 1.5rem; /* Adjust as needed */
+  height: 1.5rem; /* Adjust as needed */
+  color: white;
+  cursor: pointer;
+}
+
+.loading-spinner {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Additional styles for ChatApp.css */
+
+.message-container {
+  min-width: 450px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.no-chat-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.no-chat-selected-text {
+  padding-left: 1rem; /* Adjust as needed */
+  padding-right: 1rem; /* Adjust as needed */
+  text-align: center;
+  font-size: 1.125rem; /* sm:text-lg */
+  font-size: 1.25rem; /* md:text-xl */
+  color: #e5e7eb; /* text-gray-200 */
+  font-weight: 600; /* font-semibold */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.no-chat-icon {
+  font-size: 3rem; /* text-3xl */
+  font-size: 4rem; /* md:text-6xl */
+  text-align: center;
+}
+
+.message-header {
+  background-color: #64748b; /* bg-slate-500 */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.message-header .label-text {
+  margin-right: 0.5rem; /* Adjust as needed */
+}
+
+.message-header .message-recipient {
+  color: #1f2937; /* text-gray-900 */
+  font-weight: 700; /* font-bold */
+}
+/* Additional styles for Login component */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 24rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.login-form {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(128, 128, 128, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.login-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: #d1d5db;
+}
+
+.login-highlight {
+  color: #3b82f6;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.label-text {
+  display: block;
+  font-size: 1rem;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+}
+
+.login-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+.login-link:hover {
+  color: #1e3a8a;
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #374151;
+  border-radius: 0.25rem;
+  background-color: #2563eb;
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*Signup*/
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 24rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sign-up-form {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(128, 128, 128, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.sign-up-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: #d1d5db;
+}
+
+.sign-up-highlight {
+  color: #3b82f6;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.label-text {
+  display: block;
+  font-size: 1rem;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+}
+
+.sign-up-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+.sign-up-link:hover {
+  color: #1e3a8a;
+}
+
+.sign-up-button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #374151;
+  border-radius: 0.25rem;
+  background-color: #2563eb;
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*gender check*/
+.gender .form-control {
+  display: inline-block;
+}
+
+.gender .label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.gender .gap-2 {
+  margin-right: 0.5rem;
+}
+
+.gender .selected {
+  font-weight: bold;
+}
+
+.gender .checkbox {
+  margin-right: 0.25rem;
+}
+
+/*Message .css*/
+.message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.message-start {
+  justify-content: flex-start;
+}
+
+.message-end {
+  justify-content: flex-end;
+}
+
+.message-image.avatar .w-10.rounded-full {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.message-image.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message-bubble {
+  position: relative;
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.shake {
+  animation: shake-animation 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake-animation {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.message-footerTime {
+  font-size: 0.75rem;
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+  opacity: 0.75;
+}
+
+.messageInputForm {
+  /* Existing styles from your class (like px-4 and my-3) */
+  padding: 1rem; /* Assuming px-4 translates to padding */
+  margin-top: 1rem;
+  margin-bottom: 1rem; /* Assuming my-3 translates to margin */
+}
+
+/* Styles for the message input container */
+.messageInputContainer {
+  width: 100%; /* Assuming full width */
+  position: relative; /* Assuming relative positioning */
+}
+
+/* Styles for the message input field */
+.messageInput {
+  border: 1px solid #ccc; /* Assuming border translates to a solid border */
+  font-size: 0.875rem; /* Assuming text-sm translates to font-size */
+  border-radius: 0.5rem; /* Assuming rounded-lg translates to border radius */
+  display: block;
+  width: 90%;
+  padding: 0.75rem 1rem; /* Assuming p-2.5 translates to padding */
+  background-color: #f7fafc; /* Assuming bg-gray-700 translates to a light gray color */
+  border-color: #e2e8f0; /* Assuming border-gray-600 translates to a slightly darker gray color */
+  color: #212529; /* Assuming text-white translates to a dark color */
+}
+
+.messageInput:focus {
+  /* Add styles for focused state (optional) */
+  outline: none; /* Remove default outline */
+  border-color: #86b7fe; /* Example blue border on focus */
+}
+
+.messageInput::-webkit-input-placeholder {
+  /* For Chrome, Safari, etc. */
+  color: #97a7c3; /* Example placeholder text color */
+}
+
+.messageInput:-moz-placeholder {
+  /* For Mozilla Firefox */
+  color: #97a7c3; /* Example placeholder text color */
+}
+
+.messageInput[disabled] {
+  /* Styles for disabled state (optional) */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Styles for the message send button */
+.messageSendButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; /* Adjust padding if needed */
+  cursor: pointer; /* Set cursor to pointer on hover */
+  background-color: transparent; /* Assuming no background color for the button */
+  border: none; /* Assuming no border for the button */
+  color: #97a7c3; /* Assuming a light color for the button icon */
+}
+
+.messageSendButton:hover {
+  /* Styles for button hover state (optional) */
+  color: #212529; /* Example darker color on hover */
+}
+
+.messages {
+  padding: 1rem;
+  flex: 1;
+  overflow: auto;
+}
+
+.messages p {
+  text-align: center;
+}
+/*conversation css*/
+
+.conversation-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  cursor: pointer;
+}
+.conversation-container:hover {
+  background-color: #0284c7;
+}
+.conversation-container.selected {
+  background-color: #0284c7;
+}
+.avatar {
+  display: flex;
+}
+.avatar.online {
+  position: relative;
+}
+.avatar.online::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.avatar-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 9999px;
+}
+.avatar-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 9999px;
+}
+.conversation-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.conversation-header {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+.conversation-name {
+  font-weight: 700;
+  color: #e5e7eb;
+}
+.conversation-emoji {
+  font-size: 1.25rem;
+}
+.divider {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 0.25rem;
+}
+
+/*messageCOntianer.css */
+.message-container {
+  padding: 1rem;
+}
+.message-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.label-text {
+  font-weight: 600;
+  color: #4b5563; /* gray-600 */
+}
+.message-recipient {
+  font-weight: 700;
+  color: #1f2937; /* gray-800 */
+}
+.noChatSelected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.noChatContent {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-size: 1.125rem; /* sm:text-lg */
+  font-size: 1.25rem; /* md:text-xl */
+  color: #e5e7eb;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.noChatIcon {
+  font-size: 1.875rem; /* text-3xl */
+  font-size: 3.75rem; /* md:text-6xl */
+  text-align: center;
+}

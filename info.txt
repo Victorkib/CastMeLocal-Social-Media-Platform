@@ -1,0 +1,3 @@
+the backend has data from 3 . first we have the naman's   second we have the ones from chat-app-master which enababled the socket.io functionality thus I then used the Full-Stack-social media platform data. 
+
+when the register function of the backend :"" is called it executes and if  al l is satisfactory a sendVerificationEmail function is called to send a verification email to the user
