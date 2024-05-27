@@ -75,7 +75,7 @@ module.exports.register = async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 3,
         //sameSite: 'none',
-        //secure: true,
+        secure: true,
       })
       .json(user);
   } catch (err) {
@@ -138,7 +138,7 @@ module.exports.login = async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 3,
         //sameSite: 'none',
-        //secure: true,
+        secure: true,
       })
       .json({
         success: true,
