@@ -37,13 +37,14 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full px-4 md:px-10 pb-20 xl:px-40 bg-bgColor h-auto overflow-hidden">
+      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor  h-screen overflow-hidden">
         <TopBar />
 
-        <div className="w-full flex flex-col lg:flex-row gap-4 pt-5 pb-10">
+        <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
           {/* LEFT */}
-          <div className="hidden lg:flex flex-col gap-6 w-full lg:w-1/4 h-auto overflow-y-auto">
-            <div className="w-full bg-primary bg-opacity-45 flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
+
+          <div className="hidden w-1/3 lg:w-1/4 h-screen md:flex flex-col gap-6 overflow-y-auto">
+            <div className="w-full bg-primary flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
                 to="/"
                 className="text-ascent-2 text-center w-full px-4 py-2 rounded-lg hover:bg-primary-dark font-bold hover:text-[#d6581dfd] border border-[#c7b0b045] m-1"
@@ -62,6 +63,7 @@ const Home = () => {
               >
                 Profile
               </Link>
+
               <Link
                 to="/chat"
                 className="text-ascent-2 text-center w-full px-4 py-2 rounded-lg hover:bg-primary-dark hover:text-[#d6581dfd] border border-[#c7b0b045] m-1"
@@ -75,10 +77,10 @@ const Home = () => {
           </div>
 
           {/* CENTER */}
-          <div className="flex-1 w-full lg:w-2/4 h-auto px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
-            {/* <form
+          <div className="flex-1 h-screen px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
+            <form
               // onSubmit={handleSubmit(handlePostSubmit)}
-              className="bg-primary px-4 rounded-2xl bg-opacity-30"
+              className="bg-primary px-4 rounded-lg"
             >
               <div className="w-full flex items-center gap-2 py-4 border-b border-[#66666645]">
                 <img
@@ -170,7 +172,7 @@ const Home = () => {
                   )}
                 </div>
               </div>
-            </form> */}
+            </form>
 
             {loading ? (
               <Loading />
@@ -192,9 +194,9 @@ const Home = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="hidden lg:flex flex-col gap-8 w-full lg:w-1/4 h-auto overflow-y-auto">
+          <div className="hidden w-1/4 h-screen lg:flex flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
-            <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-2xl px-6 py-5 my-2">
+            <div className="w-full bg-primary shadow-sm rounded-lg px-6 py-5">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">
                 <span> Friend Request</span>
                 <span>{friendRequest?.length}</span>
@@ -238,7 +240,7 @@ const Home = () => {
             </div>
 
             {/* SUGGESTED FRIENDS */}
-            <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-lg px-5 py-5 my-2">
+            <div className="w-full bg-primary shadow-sm rounded-lg px-5 py-5">
               <div className="flex items-center justify-between text-lg text-ascent-1 border-b border-[#66666645]">
                 <span>Friend Suggestion</span>
               </div>
