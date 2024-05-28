@@ -17,6 +17,7 @@ import { BsFiletypeGif, BsPersonFillAdd } from 'react-icons/bs';
 import { BiImages, BiSolidVideo } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import Footer from '../components/NamsComponents/Footer';
+import UserSLider from '../components/UserSLider';
 
 const Home = () => {
   const { user, edit } = useSelector((state) => state.user);
@@ -27,6 +28,39 @@ const Home = () => {
   const [posting] = useState(false);
   const [loading] = useState(false);
 
+  const users = [
+    {
+      id: 1,
+      username: 'user1',
+      profileUrl:
+        'https://people.com/thmb/IfjWMKhodGNtpx11DvN1M0M3r1c=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(349x0:351x2)/clarissa-cruz-headshot-people-f4197aa2a3b44efb90f907198d950c8d.jpg',
+    },
+    {
+      id: 2,
+      username: 'user2',
+      profileUrl:
+        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg',
+    },
+    {
+      id: 3,
+      username: 'user3',
+      profileUrl:
+        'https://png.pngtree.com/thumb_back/fh260/background/20220428/pngtree-template-corporate-banner-of-dark-blue-and-black-glossy-stripes-on-image_1110207.jpg',
+    },
+    {
+      id: 4,
+      username: 'user4',
+      profileUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlPlpTtK_z4wQ4W74DmV5pxpZYatxBAmzrg&usqp=CAU',
+    },
+    {
+      id: 5,
+      username: 'user5',
+      profileUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-zxd1-dLr3G1zNoKoDOaHDtFSTYpRT-f6LA&usqp=CAU',
+    },
+    // Add more user objects as needed
+  ];
   const {
     register,
     // handleSubmit,
@@ -37,14 +71,14 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor  h-screen overflow-hidden">
+      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-screen overflow-hidden">
         <TopBar />
-
+        <UserSLider users={users} />
         <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
           {/* LEFT */}
 
           <div className="hidden w-1/3 lg:w-1/4 h-full md:flex flex-col gap-6 overflow-y-auto">
-            <div className="w-full bg-primary flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
+            <div className="w-full bg-primary bg-opacity-45 flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
                 to="/"
                 className="text-ascent-2 text-center w-full px-4 py-2 rounded-lg hover:bg-primary-dark font-bold hover:text-[#d6581dfd] border border-[#c7b0b045] m-1"
@@ -80,7 +114,7 @@ const Home = () => {
           <div className="flex-1 h-full px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
             <form
               // onSubmit={handleSubmit(handlePostSubmit)}
-              className="bg-primary px-4 rounded-lg"
+              className="bg-primary px-4 rounded-2xl bg-opacity-30"
             >
               <div className="w-full flex items-center gap-2 py-4 border-b border-[#66666645]">
                 <img
@@ -196,7 +230,7 @@ const Home = () => {
           {/* RIGHT */}
           <div className="hidden w-1/4 h-full lg:flex flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
-            <div className="w-full bg-primary shadow-sm rounded-lg px-6 py-5">
+            <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-2xl px-6 py-5 my-2">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">
                 <span> Friend Request</span>
                 <span>{friendRequest?.length}</span>
@@ -240,7 +274,7 @@ const Home = () => {
             </div>
 
             {/* SUGGESTED FRIENDS */}
-            <div className="w-full bg-primary shadow-sm rounded-lg px-5 py-5">
+            <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-lg px-5 py-5 my-2">
               <div className="flex items-center justify-between text-lg text-ascent-1 border-b border-[#66666645]">
                 <span>Friend Suggestion</span>
               </div>
