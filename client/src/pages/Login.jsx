@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'; //useNavigate
+import { Link } from 'react-router-dom'; //useNavigate
 import { useForm } from 'react-hook-form';
 import { TbSocial } from 'react-icons/tb';
 import { BsShare } from 'react-icons/bs';
@@ -7,8 +7,6 @@ import { ImConnection } from 'react-icons/im';
 import { CustomButton, Loading, TextInput } from '../components';
 import { BgImage } from '../assets';
 import useLogin from '../hooks/useLogin';
-import { useDispatch } from 'react-redux';
-import { setUserTest } from '../redux/setUserSlice';
 
 const Login = () => {
   const {
@@ -24,18 +22,14 @@ const Login = () => {
   // const handleSubtleClick = () => {
   //   navigate('/');
   // };
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const onSubmit = async (data) => {
     console.log(data);
-    // const { email, password } = data;
-    dispatch(setUserTest());
-    navigate('/');
-    // try {
-    //   await login(email, password); // Call login with email and password
-    // } catch (error) {
-    //   console.error('Login error:', error); // Handle errors gracefully (log for debugging)
-    // }
+    const { email, password } = data;
+    try {
+      await login(email, password); // Call login with email and password
+    } catch (error) {
+      console.error('Login error:', error); // Handle errors gracefully (log for debugging)
+    }
   };
 
   return (
