@@ -22,6 +22,7 @@ import ChatApp from './ChatApp';
 import VerificationPage from './components/verification/VerificationPage';
 import EmailClickVerification from './components/verification/EmailClickVerification';
 import TestChatApp from './components/TestChatApp';
+import Deve from './deve';
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -80,7 +81,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        <Route path="/chat" element={<ChatApp />} />
+        {/* <Route path="/chat" element={<ChatApp />} /> */}
+        <Route path="/chat" element={<Deve />} />
         <Route path="/map" element={<Map />} />
 
         <Route path="/origLogin" element={<OrigLogin />} />

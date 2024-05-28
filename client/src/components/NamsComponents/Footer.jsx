@@ -54,7 +54,9 @@ const Footer = () => {
         <div className="flex flex-row items-center">
           <ul>
             <li className="dropdown">
-              <button className="menu-link">Settings.</button>
+              <button className="menu-link">
+                <Link to={'/chat'}>Settings</Link>.
+              </button>
             </li>
           </ul>
         </div>
