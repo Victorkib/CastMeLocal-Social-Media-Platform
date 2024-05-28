@@ -280,9 +280,10 @@
   .footer-links li {
     margin: 5px 0; /* Adjust margin for smaller screens */
     border: 1px solid whitesmoke;
+    border-radius: 50%;
     padding: 2px;
-    margin-bottom: 1.5px;
-    width: 100px;
+    margin-bottom: 2px;
+    width: 70px;
     height: 6vh;
   }
 }
