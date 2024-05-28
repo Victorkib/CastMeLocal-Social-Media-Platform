@@ -268,7 +268,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #f00;
+  /* border: 2px solid #f00; */
   background-color: none;
   margin: 0 10px;
   padding: 8px 16px;
@@ -276,7 +276,8 @@
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: #2225d6;
+  filter: drop-shadow(2px 4px 4px rgb(13, 46, 156));
 }
 
 .footer-links ul {
@@ -300,7 +301,7 @@
   background-color: #fff;
   min-width: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #f00;
+  /* border: 2px solid #f00; */
   border-radius: 8px;
   z-index: 1;
 }
