@@ -64,7 +64,6 @@ body {
 /* Additional styles for ChatApp.css */
 
 .app-container {
-  position: relative;
   padding: 1rem; /* Padding */
   height: 100vh; /* Full viewport height */
   display: flex;
