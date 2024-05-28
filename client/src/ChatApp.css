@@ -5,8 +5,7 @@
 } */
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('https://wallpapers.com/images/hd/glossy-black-ad8x0y6n99wj4fti.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
