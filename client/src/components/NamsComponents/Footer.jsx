@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
         <div className="footer-links flex flex-wrap justify-between mt-4 lg:mt-0">
-          <ul className="flex flex-wrap justify-between mt-4 lg:mt-0">
+          <ul className="flex flex-wrap justify-between align-middle w-3/4 m-auto mt-4 lg:mt-0">
             <li>
               <Link to="/" className="menu-link lg:mr-4">
                 <FontAwesomeIcon icon={faHome} size="lg" />
