@@ -43,7 +43,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: 'https://castmelocal-frontend.onrender.com',
-
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
