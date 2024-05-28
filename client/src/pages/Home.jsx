@@ -17,6 +17,7 @@ import { BsFiletypeGif, BsPersonFillAdd } from 'react-icons/bs';
 import { BiImages, BiSolidVideo } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import Footer from '../components/NamsComponents/Footer';
+import UserSlider from '../components/UserSLider';
 
 const Home = () => {
   const { user, edit } = useSelector((state) => state.user);
@@ -28,6 +29,40 @@ const Home = () => {
   const [posting] = useState(false);
   const [loading] = useState(false);
 
+  const users = [
+    {
+      id: 1,
+      username: 'user1',
+      profileUrl:
+        'https://people.com/thmb/IfjWMKhodGNtpx11DvN1M0M3r1c=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(349x0:351x2)/clarissa-cruz-headshot-people-f4197aa2a3b44efb90f907198d950c8d.jpg',
+    },
+    {
+      id: 2,
+      username: 'user2',
+      profileUrl:
+        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg',
+    },
+    {
+      id: 3,
+      username: 'user3',
+      profileUrl:
+        'https://png.pngtree.com/thumb_back/fh260/background/20220428/pngtree-template-corporate-banner-of-dark-blue-and-black-glossy-stripes-on-image_1110207.jpg',
+    },
+    {
+      id: 4,
+      username: 'user4',
+      profileUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlPlpTtK_z4wQ4W74DmV5pxpZYatxBAmzrg&usqp=CAU',
+    },
+    {
+      id: 5,
+      username: 'user5',
+      profileUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-zxd1-dLr3G1zNoKoDOaHDtFSTYpRT-f6LA&usqp=CAU',
+    },
+
+    // Add more user objects as needed
+  ];
   const {
     register,
     // handleSubmit,
@@ -40,6 +75,8 @@ const Home = () => {
     <>
       <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-auto overflow-hidden">
         <TopBar />
+
+        <UserSlider users={users} />
 
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 pt-5 pb-10 h-screen w-full mx-auto">
           {/* LEFT */}
