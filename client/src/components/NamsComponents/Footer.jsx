@@ -61,7 +61,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/create" className="menu-link lg:mr-4">
+              <Link to="/chat" className="menu-link lg:mr-4">
                 <FontAwesomeIcon
                   icon={faPlus}
                   size="lg"
@@ -70,7 +70,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/profile" className="menu-link lg:mr-4">
+              <Link to="/chat" className="menu-link lg:mr-4">
                 <FontAwesomeIcon
                   icon={faUser}
                   size="lg"
