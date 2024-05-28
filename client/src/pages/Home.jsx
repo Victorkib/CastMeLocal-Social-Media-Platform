@@ -43,7 +43,7 @@ const Home = () => {
         <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
           {/* LEFT */}
 
-          <div className="hidden w-1/3 lg:w-1/4 h-screen md:flex flex-col gap-6 overflow-y-auto">
+          <div className="hidden w-1/3 lg:w-1/4 h-dvh md:flex flex-col gap-6 overflow-y-auto">
             <div className="w-full bg-primary flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
                 to="/"
@@ -77,7 +77,7 @@ const Home = () => {
           </div>
 
           {/* CENTER */}
-          <div className="flex-1 h-screen px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
+          <div className="flex-1 h-dvh px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
             <form
               // onSubmit={handleSubmit(handlePostSubmit)}
               className="bg-primary px-4 rounded-lg"
@@ -194,7 +194,7 @@ const Home = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="hidden w-1/4 h-screen lg:flex flex-col gap-8 overflow-y-auto">
+          <div className="hidden w-1/4 h-dvh lg:flex flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
             <div className="w-full bg-primary shadow-sm rounded-lg px-6 py-5">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">
