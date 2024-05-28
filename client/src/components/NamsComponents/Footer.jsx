@@ -1,13 +1,28 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import useLogout from '../../hooks/useLogout';
+import { useForm } from 'react-hook-form';
 const Footer = () => {
+  const {
+    // register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const { logout, loading } = useLogout(); // Use the logout function and loading state from useLogoutHook
+
+  const onLogout = async () => {
+    try {
+      await logout(); // Call logout
+    } catch (error) {
+      console.error('logout error:', error); // Handle errors gracefully (log for debugging)
+    }
+  };
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -49,7 +64,12 @@ const Footer = () => {
               </button>
               {isDropdownOpen && (
                 <div className="dropdown-content">
-                  <button className="menu-link">Logout</button>
+                  <button
+                    className="menu-link"
+                    onClick={handleSubmit(onLogout)}
+                  >
+                    Logout
+                  </button>
                   <button className="menu-link">Something Else</button>
                 </div>
               )}

@@ -27,7 +27,7 @@ function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user.token ? (
+  return user.regUser ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
@@ -52,7 +52,7 @@ function App() {
     <div data-theme={theme} className="w-full min-h-[100vh]">
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={user.token ? <Home /> : <Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/test" element={<TestChatApp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/landingPage" element={<LandingPage />} />

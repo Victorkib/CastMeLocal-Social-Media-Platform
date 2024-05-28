@@ -52,13 +52,13 @@ const Home = () => {
       id: 4,
       username: 'user4',
       profileUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwgc0HSuUXHEg6bOW4VriOw7bgOwyDLYD_PA&usqp=CAU',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlPlpTtK_z4wQ4W74DmV5pxpZYatxBAmzrg&usqp=CAU',
     },
     {
       id: 5,
       username: 'user5',
       profileUrl:
-        'https://people.com/thmb/CmROfB5Fw4H3oJmGwr7qJTGDCGg=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(509x0:511x2)/people-headshot-lindsay-kimble-9855440283c440159d1684a4befaa97d.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-zxd1-dLr3G1zNoKoDOaHDtFSTYpRT-f6LA&usqp=CAU',
     },
 
     // Add more user objects as needed
