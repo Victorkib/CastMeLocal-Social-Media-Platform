@@ -6,7 +6,6 @@ import {
   faHome,
   faMapMarkerAlt,
   faComments,
-  faCog,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
@@ -52,19 +51,6 @@ const Footer = () => {
               <Link to="/chat" className="menu-link lg:mr-4">
                 <FontAwesomeIcon icon={faComments} size="lg" />
               </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="flex flex-row items-center">
-          <ul>
-            <li className="dropdown">
-              <button className="menu-link" onClick={handleSettingClick}>
-                <FontAwesomeIcon
-                  icon={faCog}
-                  size="lg"
-                  className=" bg-neutral-700"
-                />
-              </button>
             </li>
           </ul>
         </div>

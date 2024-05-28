@@ -216,16 +216,17 @@
 }
 
 /*end of UserPanel css*/
-/* custom-styles.css */
 
 .content-container {
   flex: 1;
   overflow-y: auto;
 }
 
+/* custom-styles.css */
+
 .footer {
   position: fixed;
-  bottom: 0; /* Fixes the footer at the bottom */
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -236,7 +237,6 @@
   color: #fff;
   padding: 20px 0;
   width: 100%;
-  height: auto;
   z-index: 50;
 }
 
@@ -246,7 +246,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1000px; /* Adjusted */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -255,11 +255,13 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Flex display for horizontal alignment */
+  display: flex;
+  flex-wrap: wrap; /* Allow links to wrap to the next line */
+  justify-content: center; /* Center the links horizontally */
 }
 
 .footer-links ul li {
-  margin: 0 10px; /* Space between items */
+  margin: 10px;
 }
 
 .menu-link {
@@ -273,8 +275,19 @@
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  text-decoration: none; /* Adjusted */
-  color: #fff; /* Adjusted */
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Flex display for horizontal alignment */
+}
+
+.footer-links ul li {
+  margin: 0 10px; /* Space between items */
 }
 
 .dropdown {
@@ -330,6 +343,27 @@
   margin: 0;
   font-size: 14px;
   color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-links ul {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+    align-items: center; /* Center the links vertically */
+  }
+
+  .footer-links ul li {
+    margin: 5px 0; /* Adjust margin for smaller screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer .container {
+    padding: 0 40px; /* Increase padding for larger screens */
+  }
+
+  .footer-links ul li {
+    margin: 0 20px; /* Adjust margin for larger screens */
+  }
 }
 
 /*End of Footer Css from GPT*/
