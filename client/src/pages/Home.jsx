@@ -78,7 +78,7 @@ const Home = () => {
 
           {/* CENTER */}
           <div className="flex-1 h-full px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
-            <form
+            {/* <form
               // onSubmit={handleSubmit(handlePostSubmit)}
               className="bg-primary px-4 rounded-2xl bg-opacity-30"
             >
@@ -172,7 +172,7 @@ const Home = () => {
                   )}
                 </div>
               </div>
-            </form>
+            </form> */}
 
             {loading ? (
               <Loading />
