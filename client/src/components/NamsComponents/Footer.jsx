@@ -57,16 +57,6 @@ const Footer = () => {
               <button className="menu-link" onClick={toggleDropdown}>
                 Settings.
               </button>
-              {/* {isDropdownOpen && (
-                <div className="dropdown-content">
-                  <button
-                    className="menu-link"
-                    onClick={handleSubmit(onLogout)}
-                  >
-                    Logout
-                  </button>
-                </div>
-              )} */}
             </li>
           </ul>
         </div>
