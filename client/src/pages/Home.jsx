@@ -60,9 +60,9 @@ const Home = () => {
       profileUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-zxd1-dLr3G1zNoKoDOaHDtFSTYpRT-f6LA&usqp=CAU',
     },
-
     // Add more user objects as needed
   ];
+
   const {
     register,
     // handleSubmit,
@@ -73,15 +73,12 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-auto overflow-hidden">
+      <div className="w-full px-4 md:px-10 pb-20 xl:px-40 bg-bgColor h-auto overflow-hidden">
         <TopBar />
-
         <UserSlider users={users} />
-
-        <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 pt-5 pb-10 h-screen w-full mx-auto">
+        <div className="flex flex-col xl:flex-row gap-4 pt-5 pb-10 h-auto w-full mx-auto">
           {/* LEFT */}
-
-          <div className="hidden lg:flex w-full lg:w-1/4 h-dvh flex-col gap-6 overflow-y-auto">
+          <div className="hidden xl:flex w-full xl:w-1/4 h-auto flex-col gap-6 overflow-y-auto">
             <div className="w-full bg-primary bg-opacity-45 flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
                 to="/"
@@ -101,7 +98,6 @@ const Home = () => {
               >
                 Profile
               </Link>
-
               <Link
                 to="/chat"
                 className="text-ascent-2 text-center w-full px-4 py-2 rounded-lg hover:bg-primary-dark hover:text-[#d6581dfd] border border-[#c7b0b045] m-1"
@@ -109,13 +105,12 @@ const Home = () => {
                 Chat Room
               </Link>
             </div>
-
             <ProfileCard user={user} />
             <FriendsCard friends={user?.friends} />
           </div>
 
           {/* CENTER */}
-          <div className="flex-1 w-full lg:w-2/4 h-lvh px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
+          <div className="flex-1 w-full xl:w-2/4 h-auto px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
             {/* <form
               // onSubmit={handleSubmit(handlePostSubmit)}
               className="bg-primary px-4 rounded-2xl bg-opacity-30"
@@ -232,14 +227,13 @@ const Home = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="hidden lg:flex w-full lg:w-1/4 h-lvh flex-col gap-8 overflow-y-auto">
+          <div className="hidden xl:flex w-full xl:w-1/4 h-auto flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
             <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-2xl px-6 py-5 my-2">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">
-                <span> Friend Request</span>
+                <span>Friend Request</span>
                 <span>{friendRequest?.length}</span>
               </div>
-
               <div className="w-full flex flex-col gap-4 pt-4">
                 {friendRequest?.map(({ _id, requestFrom: from }) => (
                   <div key={_id} className="flex items-center justify-between">
@@ -261,7 +255,6 @@ const Home = () => {
                         </span>
                       </div>
                     </Link>
-
                     <div className="flex gap-1">
                       <CustomButton
                         title="Accept"
@@ -307,7 +300,6 @@ const Home = () => {
                         </span>
                       </div>
                     </Link>
-
                     <div className="flex gap-1">
                       <button
                         className="bg-[#0444a430] text-sm text-white p-1 rounded"
