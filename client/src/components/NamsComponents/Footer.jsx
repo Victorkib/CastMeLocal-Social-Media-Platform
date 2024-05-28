@@ -2,6 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useLogout from '../../hooks/useLogout';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome,
+  faMapMarkerAlt,
+  faComments,
+  faCog,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   const {
@@ -36,17 +43,17 @@ const Footer = () => {
             {/* Links based on login state (Optional) */}
             <li>
               <Link to="/" className="menu-link lg:mr-4">
-                Home
+                <FontAwesomeIcon icon={faHome} size="lg" />
               </Link>
             </li>
             <li>
               <Link to="/map" className="menu-link lg:mr-4">
-                Map
+                <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
               </Link>
             </li>
             <li>
               <Link to="/chat" className="menu-link lg:mr-4">
-                Chat-Room
+                <FontAwesomeIcon icon={faComments} size="lg" />
               </Link>
             </li>
           </ul>
@@ -54,9 +61,14 @@ const Footer = () => {
         <div className="flex flex-row items-center">
           <ul>
             <li className="dropdown">
-              <button className="menu-link">
-                <Link to={'/chat'}>Settings</Link>.
+              <button className="menu-link" onClick={toggleDropdown}>
+                <FontAwesomeIcon icon={faCog} size="lg" />
               </button>
+              {isDropdownOpen && (
+                <div className="dropdown-content">
+                  <button onClick={onLogout}>Logout</button>
+                </div>
+              )}
             </li>
           </ul>
         </div>
