@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useLogout from '../../hooks/useLogout';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,10 +28,9 @@ const Footer = () => {
   };
   // const handleSearch = async (data) => {};
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const navigate = useNavigate();
+  const handleSettingClick = () => {
+    navigate('/chat');
   };
 
   return (
@@ -60,14 +58,9 @@ const Footer = () => {
         <div className="flex flex-row items-center">
           <ul>
             <li className="dropdown">
-              <button className="menu-link" onClick={toggleDropdown}>
+              <button className="menu-link" onClick={handleSettingClick}>
                 <FontAwesomeIcon icon={faCog} size="lg" />
               </button>
-              {isDropdownOpen && (
-                <div className="dropdown-content">
-                  <button onClick={onLogout}>Logout</button>
-                </div>
-              )}
             </li>
           </ul>
         </div>
