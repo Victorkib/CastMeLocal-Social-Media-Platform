@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { TbSocial } from 'react-icons/tb';
 import { BsShare } from 'react-icons/bs';
@@ -16,9 +16,11 @@ const Login = () => {
   } = useForm({
     mode: 'onChange',
   });
-
+  const navigate = useNavigate();
   const { login, loading } = useLogin(); // Use the login function and loading state from useLoginHook
-
+  const handleSubtleClick = () => {
+    navigate('/');
+  };
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password); // Call login with email and password
@@ -88,6 +90,7 @@ const Login = () => {
             ) : (
               <CustomButton
                 type="submit"
+                onClick={handleSubtleClick}
                 containerStyles={`inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none`}
                 title="Login"
               />

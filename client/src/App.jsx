@@ -27,7 +27,7 @@ function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user.regUser ? (
+  return user ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
