@@ -56,11 +56,8 @@ function App() {
           <Route path="/test" element={<TestChatApp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/landingPage" element={<LandingPage />} />
-          <Route path="/map" element={<Map />} />
-          <Route
-            path="/chat"
-            element={user ? <ChatApp /> : <Navigate to="/login" />}
-          />
+          {/* <Route path="/map" element={<Map />} /> */}
+
           <Route path="/userSearch" element={<UserSearch />} />
           <Route path="/profile" element={<OrigProfile />} />
           <Route path="/explore" element={<Explore />} />
@@ -82,6 +79,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+
+        <Route path="/chat" element={<ChatApp />} />
+        <Route path="/map" element={<Map />} />
 
         <Route path="/origLogin" element={<OrigLogin />} />
         <Route path="/origSignup" element={<OrigSignUp />} />

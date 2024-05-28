@@ -19,7 +19,7 @@ const MessageContainer = () => {
         const coords = [position.coords.latitude, position.coords.longitude];
         setLocation(coords);
         axios.post('/api/mapUsers/user/location', {
-          userId: user.regUser._id,
+          userId: user._id,
           coordinates: coords,
         });
       });

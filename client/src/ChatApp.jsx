@@ -9,10 +9,10 @@ import { useSelector } from 'react-redux';
 
 function ChatApp() {
   //const { authUser } = useAuthContext();
-  const { user } = useSelector((store) => store.user);
+  //const { user } = useSelector((store) => store.user);
   return (
     <div className="app-container">
-      {user ? <Home /> : <Login />}
+      <Home />
 
       <Toaster />
     </div>

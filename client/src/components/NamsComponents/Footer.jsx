@@ -46,7 +46,7 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/chat" className="menu-link lg:mr-4">
-                Chat Room
+                Chat-Room
               </Link>
             </li>
           </ul>
