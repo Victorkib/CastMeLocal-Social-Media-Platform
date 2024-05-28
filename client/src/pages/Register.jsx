@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'; //useNavigate
+import { Link, useNavigate } from 'react-router-dom'; //useNavigate
 import { useForm } from 'react-hook-form';
 import { TbSocial } from 'react-icons/tb';
 import { BsShare } from 'react-icons/bs';
@@ -9,6 +9,8 @@ import { CustomButton, Loading, TextInput } from '../components';
 import { BgImage } from '../assets';
 import GenderCheckbox from './GenderCheckbox';
 import useSignup from '../hooks/useSignup';
+import { setUserTest } from '../redux/setUserSlice';
+import { useDispatch } from 'react-redux';
 
 const Register = () => {
   const {
@@ -28,24 +30,27 @@ const Register = () => {
   const handleCheckboxChange = (gender) => {
     setGender(gender);
   };
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password } = data;
     setIsSubmitting(true);
-    try {
-      await signup({
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword: password,
-        gender,
-      });
-    } catch (error) {
-      setErrMsg(error.message);
-    } finally {
-      setIsSubmitting(false);
-    }
+    dispatch(setUserTest());
+    navigate('/');
+    // try {
+    //   await signup({
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     password,
+    //     confirmPassword: password,
+    //     gender,
+    //   });
+    // } catch (error) {
+    //   setErrMsg(error.message);
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
   };
   //const navigate = useNavigate();
   // const handleSubtleClick = (e) => {

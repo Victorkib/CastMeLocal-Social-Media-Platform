@@ -24,10 +24,12 @@ import EmailClickVerification from './components/verification/EmailClickVerifica
 import TestChatApp from './components/TestChatApp';
 
 function Layout() {
-  const { user } = useSelector((state) => state.user);
+  // const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user.regUser ? (
+  useEffect(() => {}, [user]);
+  const { user } = useSelector((state) => state.userSLiceTest);
+  return user ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
