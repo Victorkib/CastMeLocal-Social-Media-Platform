@@ -17,11 +17,14 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const socket = io(import.meta.env.APP_URL || 'http://localhost:5000', {
-        query: {
-          userId: user._id,
-        },
-      });
+      const socket = io(
+        'https://castmelocal.onrender.com' || 'http://localhost:5000',
+        {
+          query: {
+            userId: user._id,
+          },
+        }
+      );
 
       setSocket(socket);
 
