@@ -17,7 +17,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const socket = io('https://castmelocal.onrender.com', {
+      const socket = io('process.env.APP_URL || http://localhost:5000', {
         query: {
           userId: user._id,
         },

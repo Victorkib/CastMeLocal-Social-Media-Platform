@@ -1,6 +1,10 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
+
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -31,7 +35,6 @@ const connectToMongoDB = require('./db/connectToMongoDB.js');
 const { app, server } = require('./socket/socket.js');
 
 const PORT = process.env.PORT || 5000;
-dotenv.config();
 
 // Middleware setup
 app.use(helmet());
@@ -45,7 +48,7 @@ app.use(
     origin: [
       'http://localhost:3001',
       'http://localhost:3000',
-      'https://castmelocal-frontend.onrender.com/',
+      process.env.CL_URL,
     ],
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
@@ -72,8 +75,8 @@ app.use('/api/socials', SocialRouter);
 // Error middleware
 app.use(errorMiddleware);
 
+// Uncomment these lines if you want to serve the frontend from the same server
 // app.use(express.static(path.join(__dirname, '/frontend/dist')));
-
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 // });

@@ -8,7 +8,8 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://castmelocal.onrender.com',
+        target: ' process.env.APP_URL || http://localhost:5000',
+        changeOrigin: true,
       },
     },
   },
