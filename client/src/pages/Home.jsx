@@ -17,9 +17,11 @@ import { BsFiletypeGif, BsPersonFillAdd } from 'react-icons/bs';
 import { BiImages, BiSolidVideo } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import Footer from '../components/NamsComponents/Footer';
+import UserSlider from '../components/UserSLider';
 
 const Home = () => {
   const { user, edit } = useSelector((state) => state.user);
+
   const [friendRequest] = useState(requests);
   const [suggestedFriends] = useState(suggest);
   const [errMsg] = useState('');
@@ -27,6 +29,40 @@ const Home = () => {
   const [posting] = useState(false);
   const [loading] = useState(false);
 
+  const users = [
+    {
+      id: 1,
+      username: 'user1',
+      profileUrl:
+        'https://people.com/thmb/IfjWMKhodGNtpx11DvN1M0M3r1c=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(349x0:351x2)/clarissa-cruz-headshot-people-f4197aa2a3b44efb90f907198d950c8d.jpg',
+    },
+    {
+      id: 2,
+      username: 'user2',
+      profileUrl:
+        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg',
+    },
+    {
+      id: 3,
+      username: 'user3',
+      profileUrl:
+        'https://png.pngtree.com/thumb_back/fh260/background/20220428/pngtree-template-corporate-banner-of-dark-blue-and-black-glossy-stripes-on-image_1110207.jpg',
+    },
+    {
+      id: 4,
+      username: 'user4',
+      profileUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwgc0HSuUXHEg6bOW4VriOw7bgOwyDLYD_PA&usqp=CAU',
+    },
+    {
+      id: 5,
+      username: 'user5',
+      profileUrl:
+        'https://people.com/thmb/CmROfB5Fw4H3oJmGwr7qJTGDCGg=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(509x0:511x2)/people-headshot-lindsay-kimble-9855440283c440159d1684a4befaa97d.jpg',
+    },
+
+    // Add more user objects as needed
+  ];
   const {
     register,
     // handleSubmit,
@@ -37,13 +73,15 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-screen overflow-hidden">
+      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-auto overflow-hidden">
         <TopBar />
 
-        <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
+        <UserSlider users={users} />
+
+        <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 pt-5 pb-10 h-screen w-full mx-auto">
           {/* LEFT */}
 
-          <div className="hidden w-1/3 lg:w-1/4 h-full md:flex flex-col gap-6 overflow-y-auto">
+          <div className="hidden lg:flex w-full lg:w-1/4 h-dvh flex-col gap-6 overflow-y-auto">
             <div className="w-full bg-primary bg-opacity-45 flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
                 to="/"
@@ -77,7 +115,7 @@ const Home = () => {
           </div>
 
           {/* CENTER */}
-          <div className="flex-1 h-full px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
+          <div className="flex-1 w-full lg:w-2/4 h-lvh px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
             <form
               // onSubmit={handleSubmit(handlePostSubmit)}
               className="bg-primary px-4 rounded-2xl bg-opacity-30"
@@ -194,7 +232,7 @@ const Home = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="hidden w-1/4 h-full lg:flex flex-col gap-8 overflow-y-auto">
+          <div className="hidden lg:flex w-full lg:w-1/4 h-lvh flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
             <div className="w-full bg-primary bg-opacity-75 shadow-sm rounded-2xl px-6 py-5 my-2">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">

@@ -2,14 +2,14 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useAuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'; //useSelector
 import { UserLogin } from '../redux/userSlice';
 
 const useLogin = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = useAuthContext();
-  const { user } = useSelector((state) => state.user);
+  //const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const login = async (email, password) => {
@@ -25,19 +25,19 @@ const useLogin = () => {
       });
 
       const data = await res.json();
-      if (data.error) {
-        throw new Error(data.error.message);
+      if (!res.status === 200) {
+        throw new Error(data.message);
       }
-
+      console.log(data.message);
       console.log(data);
-      if (res.status === 201) {
+      if (res.status === 200) {
         dispatch(UserLogin(data));
         localStorage.setItem('chat-user', JSON.stringify(data));
         setAuthUser(data);
         navigate('/');
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error);
     } finally {
       setLoading(false);
     }

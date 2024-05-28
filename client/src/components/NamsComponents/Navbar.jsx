@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <header className="Navlinks">
-      <h2 className="logo">Logo</h2>
+      <h2 className="logo">
+        <Link to="/">CastMeLocal</Link>
+      </h2>
       <nav className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/chat">Chat Room</Link>

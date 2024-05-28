@@ -19,7 +19,7 @@ const MessageContainer = () => {
         const coords = [position.coords.latitude, position.coords.longitude];
         setLocation(coords);
         axios.post('/api/mapUsers/user/location', {
-          userId: user._id,
+          userId: user.regUser._id,
           coordinates: coords,
         });
       });
@@ -37,7 +37,7 @@ const MessageContainer = () => {
           <div className="message-header">
             <span className="label-text">To:</span>
             <span className="message-recipient">
-              {selectedConversation.fullName}
+              {selectedConversation.firstName}
             </span>
           </div>
           <Messages />
@@ -57,7 +57,9 @@ const NoChatSelected = () => {
   return (
     <div className="no-chat-selected">
       <div className="no-chat-selected-text">
-        <p>Welcome 👋 {user.firstName + ' ' + user.lastName} ❄</p>
+        <p>
+          Welcome 👋 {user.regUser.firstName + ' ' + user.regUser.lastName} ❄
+        </p>
         <p>Select a chat to start messaging</p>
         <TiMessages className="no-chat-icon" />
       </div>

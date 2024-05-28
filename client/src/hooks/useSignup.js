@@ -50,16 +50,16 @@ const useSignup = () => {
       const data = await res.json();
       console.log(data);
 
-      if (data.error) {
-        throw new Error(data.error.message);
+      if (!res.status === 201) {
+        throw new Error(data.message);
       }
 
       if (res.status === 201) {
-        alert('all is success');
-        //dispatch(UserLogin(data));
-        // dispatch(setAfterRegisteredData(data));
-        // localStorage.setItem('chat-user', JSON.stringify(data));
-        // setAuthUser(data);
+        //alert('all is success');
+        dispatch(UserLogin(data));
+        dispatch(setAfterRegisteredData(data));
+        localStorage.setItem('chat-user', JSON.stringify(data));
+        setAuthUser(data);
         navigate('/');
       }
     } catch (error) {

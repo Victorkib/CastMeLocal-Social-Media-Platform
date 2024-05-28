@@ -21,7 +21,9 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
 
         <div className="conversation-info">
           <div className="conversation-header">
-            <p className="conversation-name">{conversation.fullName}</p>
+            <p className="conversation-name">
+              {`${conversation.firstName}` + ' ' + `${conversation.lastName}`}
+            </p>
             <span className="conversation-emoji">{emoji}</span>
           </div>
         </div>
