@@ -43,7 +43,7 @@ const Footer = () => {
               className="w-30 h-30 rounded-full object-contain"
             />
           </div>
-          <h1 className="text-2xl font-bold ml-2">CastMelocal</h1>
+          {/* <h1 className="text-2xl font-bold ml-2">CastMelocal</h1> */}
         </div>
         <div className="footer-links flex flex-wrap justify-between mt-4 lg:mt-0">
           <ul className="flex flex-wrap justify-between mt-4 lg:mt-0">
