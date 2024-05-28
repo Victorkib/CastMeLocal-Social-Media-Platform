@@ -36,13 +36,12 @@ const Home = () => {
   // const handlePostSubmit = async (data) => {};
 
   return (
-    <>
-      <div className="w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor  h-screen overflow-hidden">
+    <div className="app-container relative h-screen">
+      <div className="content-container w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor h-full overflow-y-auto">
         <TopBar />
 
         <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
           {/* LEFT */}
-
           <div className="hidden w-1/3 lg:w-1/4 h-dvh md:flex flex-col gap-6 overflow-y-auto">
             <div className="w-full bg-primary flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
               <Link
@@ -78,102 +77,6 @@ const Home = () => {
 
           {/* CENTER */}
           <div className="flex-1 h-dvh px-4 flex flex-col gap-6 overflow-y-auto rounded-lg">
-            {/* <form
-              // onSubmit={handleSubmit(handlePostSubmit)}
-              className="bg-primary px-4 rounded-lg"
-            >
-              <div className="w-full flex items-center gap-2 py-4 border-b border-[#66666645]">
-                <img
-                  src={user?.profileUrl ?? NoProfile}
-                  alt="User Image"
-                  className="w-14 h-14 rounded-full object-cover"
-                />
-                <TextInput
-                  styles="w-full rounded-full py-5"
-                  placeholder="What's on your mind...."
-                  name="description"
-                  register={register('description', {
-                    required: 'Write something about post',
-                  })}
-                  error={errors.description ? errors.description.message : ''}
-                />
-              </div>
-              {errMsg?.message && (
-                <span
-                  role="alert"
-                  className={`text-sm ${
-                    errMsg?.status === 'failed'
-                      ? 'text-[#f64949fe]'
-                      : 'text-[#2ba150fe]'
-                  } mt-0.5`}
-                >
-                  {errMsg?.message}
-                </span>
-              )}
-
-              <div className="flex items-center justify-between py-4">
-                <label
-                  htmlFor="imgUpload"
-                  className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer"
-                >
-                  <input
-                    type="file"
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className="hidden"
-                    id="imgUpload"
-                    data-max-size="5120"
-                    accept=".jpg, .png, .jpeg"
-                  />
-                  <BiImages />
-                  <span>Image</span>
-                </label>
-
-                <label
-                  className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer"
-                  htmlFor="videoUpload"
-                >
-                  <input
-                    type="file"
-                    data-max-size="5120"
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className="hidden"
-                    id="videoUpload"
-                    accept=".mp4, .wav"
-                  />
-                  <BiSolidVideo />
-                  <span>Video</span>
-                </label>
-
-                <label
-                  className="flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer"
-                  htmlFor="vgifUpload"
-                >
-                  <input
-                    type="file"
-                    data-max-size="5120"
-                    onChange={(e) => setFile(e.target.files[0])}
-                    className="hidden"
-                    id="vgifUpload"
-                    accept=".gif"
-                  />
-                  <BsFiletypeGif />
-                  <span>Gif</span>
-                </label>
-
-                <div>
-                  {posting ? (
-                    <Loading />
-                  ) : (
-                    <CustomButton
-                      type="submit"
-                      title="Post"
-                      containerStyles="bg-[#0444a4] text-white py-1 px-6 rounded-full font-semibold text-sm"
-                    />
-                  )}
-                </div>
-              </div>
-            </form> */}
-
             {loading ? (
               <Loading />
             ) : posts?.length > 0 ? (
@@ -194,7 +97,7 @@ const Home = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="hidden w-1/4 h-dvh lg:flex flex-col gap-8 overflow-y-auto">
+          <div className="hidden w-1/4 h-max lg:flex flex-col gap-8 overflow-y-auto">
             {/* FRIEND REQUEST */}
             <div className="w-full bg-primary shadow-sm rounded-lg px-6 py-5">
               <div className="flex items-center justify-between text-xl text-ascent-1 pb-2 border-b border-[#66666645]">
@@ -271,12 +174,14 @@ const Home = () => {
                     </Link>
 
                     <div className="flex gap-1">
-                      <button
-                        className="bg-[#0444a430] text-sm text-white p-1 rounded"
-                        onClick={() => {}}
-                      >
-                        <BsPersonFillAdd size={20} className="text-[#0f52b6]" />
-                      </button>
+                      <CustomButton
+                        title="Accept"
+                        containerStyles="bg-[#0444a4] text-xs text-white px-1.5 py-1 rounded-full"
+                      />
+                      <CustomButton
+                        title="Deny"
+                        containerStyles="border border-[#666] text-xs text-ascent-1 px-1.5 py-1 rounded-full"
+                      />
                     </div>
                   </div>
                 ))}
@@ -286,8 +191,7 @@ const Home = () => {
         </div>
       </div>
       <Footer />
-      {edit && <EditProfile />}
-    </>
+    </div>
   );
 };
 

@@ -216,6 +216,27 @@
 }
 
 /*end of UserPanel css*/
+/* custom-styles.css */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50; /* Adjust as needed to ensure it stays on top */
+}
+
 .footer {
   position: fixed;
   bottom: 0; /* Fixes the footer at the bottom */
