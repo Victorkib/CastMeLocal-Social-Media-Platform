@@ -267,6 +267,7 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #f00;
+  background-color: none;
   margin: 0 10px;
   padding: 8px 16px;
   border-radius: 8px;

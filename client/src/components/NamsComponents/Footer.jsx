@@ -59,7 +59,11 @@ const Footer = () => {
           <ul>
             <li className="dropdown">
               <button className="menu-link" onClick={handleSettingClick}>
-                <FontAwesomeIcon icon={faCog} size="lg" />
+                <FontAwesomeIcon
+                  icon={faCog}
+                  size="lg"
+                  className=" bg-neutral-700"
+                />
               </button>
             </li>
           </ul>
