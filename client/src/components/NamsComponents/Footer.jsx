@@ -30,9 +30,9 @@ const Footer = () => {
 
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-        <div className="footer-links flex flex-wrap justify-center mt-4 lg:mt-0">
-          <ul className="flex flex-wrap justify-center mt-4 lg:mt-0">
+      <div className="container mx-auto flex  lg:flex-row justify-between items-center border-green-700">
+        <div className="footer-links flex flex-wrap justify-center mt-4 lg:mt-0 border-yellow-500">
+          <ul className="flex flex-wrap justify-center border-orange-950 mt-4 lg:mt-0">
             <li>
               <Link to="/" className="menu-link lg:mr-4">
                 <FontAwesomeIcon
