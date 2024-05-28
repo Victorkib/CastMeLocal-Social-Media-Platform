@@ -55,7 +55,7 @@ const Footer = () => {
           <ul>
             <li className="dropdown">
               <button className="menu-link" onClick={toggleDropdown}>
-                Settings
+                Settings.
               </button>
               {isDropdownOpen && (
                 <div className="dropdown-content">
@@ -65,7 +65,6 @@ const Footer = () => {
                   >
                     Logout
                   </button>
-                  <button className="menu-link">Something Else</button>
                 </div>
               )}
             </li>
