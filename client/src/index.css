@@ -5,7 +5,7 @@
 /*the other css*/
 
 .topbar {
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 49;
 }
