@@ -6,15 +6,15 @@ import {
   faHome,
   faMapMarkerAlt,
   faComments,
-} from '@fortawesome/free-solid-svg-icons';
+  faUser,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons'; // Importing the required icons
 
 const Footer = () => {
   const {
     handleSubmit,
     //formState: { errors },
   } = useForm();
-
-  //const navigate = useNavigate();
 
   const { logout } = useLogout(); // Use the logout function and loading state from useLogoutHook
 
@@ -25,12 +25,8 @@ const Footer = () => {
       console.error('logout error:', error); // Handle errors gracefully (log for debugging)
     }
   };
-  // const handleSearch = async (data) => {};
 
   const navigate = useNavigate();
-  const handleSettingClick = () => {
-    navigate('/chat');
-  };
 
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
@@ -50,6 +46,16 @@ const Footer = () => {
             <li>
               <Link to="/chat" className="menu-link lg:mr-4">
                 <FontAwesomeIcon icon={faComments} size="lg" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/create" className="menu-link lg:mr-4">
+                <FontAwesomeIcon icon={faPlus} size="lg" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/profile" className="menu-link lg:mr-4">
+                <FontAwesomeIcon icon={faUser} size="lg" />
               </Link>
             </li>
           </ul>
