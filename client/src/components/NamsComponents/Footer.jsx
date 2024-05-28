@@ -30,10 +30,10 @@ const Footer = () => {
 
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="flex flex-row items-center justify-between">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+        <div className="flex flex-row items-center">
           {/* Mobile menu button (Optional) */}
-          <div className="mobile-btn hidden md:block">
+          <div className="mobile-btn hidden lg:block">
             <ion-icon name="grid"></ion-icon>
           </div>
           <div className="logo">
@@ -45,21 +45,21 @@ const Footer = () => {
           </div>
           <h1 className="text-2xl font-bold ml-2">CastMelocal</h1>
         </div>
-        <div className="footer-links flex flex-wrap justify-between mt-4 md:mt-0">
-          <ul className="flex flex-wrap justify-between mt-4 md:mt-0">
+        <div className="footer-links flex flex-wrap justify-between mt-4 lg:mt-0">
+          <ul className="flex flex-wrap justify-between mt-4 lg:mt-0">
             {/* Links based on login state (Optional) */}
             <li>
-              <Link to="/" className="menu-link">
+              <Link to="/" className="menu-link lg:mr-4">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/map" className="menu-link">
+              <Link to="/map" className="menu-link lg:mr-4">
                 Map
               </Link>
             </li>
             <li>
-              <Link to="/chat" className="menu-link">
+              <Link to="/chat" className="menu-link lg:mr-4">
                 Chat Room
               </Link>
             </li>
