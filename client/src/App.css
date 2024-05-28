@@ -280,7 +280,7 @@
   .footer-links li {
     margin: 5px 0; /* Adjust margin for smaller screens */
     border: 1px solid whitesmoke;
-    border-radius: 50%;
+    border-radius: 20px 0px 20px 0px;
     padding: 2px;
     margin-bottom: 2px;
     width: 70px;
