@@ -30,7 +30,6 @@ const Home = () => {
   const {
     register,
     // handleSubmit,
-    formState: { errors },
   } = useForm();
 
   // const handlePostSubmit = async (data) => {};
