@@ -2,19 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useLogout from '../../hooks/useLogout';
 import { useForm } from 'react-hook-form';
+
 const Footer = () => {
   const {
-    // register,
     handleSubmit,
-    // formState: { errors },
+    //formState: { errors },
   } = useForm();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  //const navigate = useNavigate();
 
-  const { logout, loading } = useLogout(); // Use the logout function and loading state from useLogoutHook
+  const { logout } = useLogout(); // Use the logout function and loading state from useLogoutHook
 
   const onLogout = async () => {
     try {
@@ -23,6 +20,14 @@ const Footer = () => {
       console.error('logout error:', error); // Handle errors gracefully (log for debugging)
     }
   };
+  // const handleSearch = async (data) => {};
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">

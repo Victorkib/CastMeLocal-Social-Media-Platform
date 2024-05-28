@@ -4,6 +4,7 @@ import { useAuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; //useSelector
 import { UserLogin } from '../redux/userSlice';
+import { setAfterRegisteredData } from '../features/emailSent/afterRegisterDataSlice';
 
 const useLogin = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,9 @@ const useLogin = () => {
       console.log(data.message);
       console.log(data);
       if (res.status === 200) {
+        // alert('all is success in login');
         dispatch(UserLogin(data));
+        dispatch(setAfterRegisteredData(data));
         localStorage.setItem('chat-user', JSON.stringify(data));
         setAuthUser(data);
         navigate('/');

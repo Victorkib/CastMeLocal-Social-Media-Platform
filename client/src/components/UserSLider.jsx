@@ -9,8 +9,8 @@ const UserSlider = ({ users }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1000,
+    // autoplay: true,
+    // autoplaySpeed: 1000,
     nextArrow: <NextArrow />, // Pass NextArrow component
     prevArrow: <PrevArrow />, // Pass PrevArrow component
     responsive: [

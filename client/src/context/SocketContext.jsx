@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-//import { useAuthContext } from './AuthContext';
 import io from 'socket.io-client';
 import { useSelector } from 'react-redux';
 
@@ -12,13 +11,14 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  //const { authUser } = useAuthContext();
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (user) {
       const socket = io(
-        'https://castmelocal.onrender.com' || 'http://localhost:5000',
+        import.meta.env.NODE_ENV === 'production'
+          ? import.meta.env.VITE_APP_URL // Use environment variable for production
+          : 'http://localhost:5000', // Use local URL for development
         {
           query: {
             userId: user._id,
@@ -28,7 +28,6 @@ export const SocketContextProvider = ({ children }) => {
 
       setSocket(socket);
 
-      // socket.on() is used to listen to the events. can be used both on client and server side
       socket.on('getOnlineUsers', (users) => {
         setOnlineUsers(users);
       });

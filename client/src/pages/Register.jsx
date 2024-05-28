@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; //
+import { Link } from 'react-router-dom'; //useNavigate
 import { useForm } from 'react-hook-form';
 import { TbSocial } from 'react-icons/tb';
 import { BsShare } from 'react-icons/bs';
@@ -47,11 +47,11 @@ const Register = () => {
       setIsSubmitting(false);
     }
   };
-  const navigate = useNavigate();
-  const handleSubtleClick = (e) => {
-    e.preventDefault();
-    navigate('/');
-  };
+  //const navigate = useNavigate();
+  // const handleSubtleClick = (e) => {
+  //   e.preventDefault();
+  //   navigate('/');
+  // };
   return (
     <div className="bg-bgColor w-full h-[100vh] flex items-center justify-center p-6">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex flex-row-reverse bg-primary rounded-xl overflow-hidden shadow-xl bg-opacity-85">
@@ -169,7 +169,7 @@ const Register = () => {
                 type="submit"
                 containerStyles={`inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none`}
                 title="Create Account"
-                onClick={handleSubtleClick}
+                // onClick={handleSubtleClick}
               />
             )}
           </form>
