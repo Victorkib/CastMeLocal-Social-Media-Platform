@@ -54,9 +54,7 @@ const Footer = () => {
         <div className="flex flex-row items-center">
           <ul>
             <li className="dropdown">
-              <button className="menu-link" onClick={toggleDropdown}>
-                Settings.
-              </button>
+              <button className="menu-link">Settings.</button>
             </li>
           </ul>
         </div>
