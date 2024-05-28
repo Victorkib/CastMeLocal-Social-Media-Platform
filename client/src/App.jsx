@@ -28,7 +28,7 @@ function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
 
-  return user.regUser ? (
+  return user ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
@@ -81,8 +81,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        <Route path="/chat" element={<ChatApp />} />
-        {/* <Route path="/chat" element={<UnderDev />} /> */}
+        {/* <Route path="/chat" element={<ChatApp />} /> */}
+        <Route path="/chat" element={<UnderDev />} />
         <Route path="/map" element={<Map />} />
 
         <Route path="/origLogin" element={<OrigLogin />} />
