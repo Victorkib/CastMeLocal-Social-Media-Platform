@@ -1,20 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
     proxy: {
       '/api': {
-        target:
-          import.meta.env.NODE_ENV === 'production'
-            ? 'https://castmelocal.onrender.com'
-            : 'http://localhost:5000',
+        target: 'https://castmelocal.onrender.com', // Update to your backend URL
       },
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: 'dist', // Ensure the output directory is 'dist'
   },
 });
