@@ -6,7 +6,6 @@ import { TiMessages } from 'react-icons/ti';
 //import { useAuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { url } from '../../utils/api';
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -19,10 +18,13 @@ const MessageContainer = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const coords = [position.coords.latitude, position.coords.longitude];
         setLocation(coords);
-        axios.post(`${url}/api/mapUsers/user/location`, {
-          userId: user._id,
-          coordinates: coords,
-        });
+        axios.post(
+          'https://castmelocal.onrender.com/api/mapUsers/user/location',
+          {
+            userId: user._id,
+            coordinates: coords,
+          }
+        );
       });
     }
 

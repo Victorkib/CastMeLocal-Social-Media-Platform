@@ -14,7 +14,7 @@ export const SocketContextProvider = ({ children }) => {
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (user && user.regUser) {
+    if (user.regUser) {
       const socket = io('https://castmelocal.onrender.com', {
         // Connect to backend URL in production
         query: {

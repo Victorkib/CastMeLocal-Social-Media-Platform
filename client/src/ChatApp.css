@@ -14,19 +14,23 @@ body {
 
 /* dark mode looking scrollbar */
 ::-webkit-scrollbar {
+  display: none;
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
+  display: none;
   background: #555;
 }
 
 ::-webkit-scrollbar-thumb {
+  display: none;
   background: #121212;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  display: none;
   background: #242424;
 }
 

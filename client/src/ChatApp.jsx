@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 function ChatApp() {
   //const { authUser } = useAuthContext();
   const { user } = useSelector((store) => store.user);
+  console.log(user);
   return (
     <div className="app-container">
       {user.regUser ? <Home /> : <Login />}
