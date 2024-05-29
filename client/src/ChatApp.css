@@ -71,7 +71,6 @@ body {
   padding: 1rem; /* Padding */
   height: 100vh; /* Full viewport height */
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;

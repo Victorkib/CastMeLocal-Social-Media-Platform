@@ -57,7 +57,7 @@ const Map = () => {
                       alt={user.firstName}
                       style={{ width: '50px', borderRadius: '50%' }}
                     />
-                    <p>{user.firstName + user.lastName}</p>
+                    <p>{user.firstName + ' ' + user.lastName}</p>
                     <h6>
                       <Link to={'/chat'}>Chat</Link>
                     </h6>
