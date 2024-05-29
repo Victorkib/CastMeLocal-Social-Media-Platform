@@ -6,7 +6,7 @@ const {
   compareString,
 } = require('../../utils/index.js');
 const { sendVerificationEmail } = require('../../utils/sendEmail.js');
-
+const maxAge = 3 * 24 * 60 * 60;
 /* Register */
 module.exports.register = async (req, res) => {
   const { firstName, lastName, email, password, gender } = req.body;
@@ -79,7 +79,7 @@ module.exports.register = async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 3,
         //sameSite: 'none',
-        secure: true,
+        //secure: true,
       })
       .json({ regUser, token });
   } catch (err) {
@@ -140,9 +140,9 @@ module.exports.login = async (req, res) => {
       .status(200)
       .cookie('jwt', token, {
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 3,
+        maxAge: maxAge * 1000,
         //sameSite: 'none',
-        secure: true,
+        //secure: true,
       })
       .json({
         success: true,
@@ -159,7 +159,7 @@ module.exports.login = async (req, res) => {
 // Logout controller
 module.exports.logout = (req, res) => {
   try {
-    res.cookie('jwt', '', { maxAge: 0 });
+    res.cookie('jwt', '', { maxAge: new Date(0) });
     res.status(200).json({ message: 'Logged out successfully' });
   } catch (error) {
     console.log('Error in logout controller', error.message);

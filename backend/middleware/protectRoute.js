@@ -10,7 +10,7 @@ const protectRoute = async (req, res, next) => {
     if (!token) {
       return res
         .status(401)
-        .json({ error: 'Unauthorized - No Token Provided' });
+        .json({ error: 'Unauthorized - No Token Provided or seen' });
     }
 
     // Verify the token using JWT secret
