@@ -166,6 +166,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* Additional styles for ChatApp.css */
 
 .message-container {
@@ -514,19 +515,8 @@ body {
   align-items: center;
   opacity: 0.75;
 }
-
-.messageInputForm {
-  /* Existing styles from your class (like px-4 and my-3) */
-  padding: 1rem; /* Assuming px-4 translates to padding */
-  margin-top: 1rem;
-  margin-bottom: 1rem; /* Assuming my-3 translates to margin */
-}
-
-/* Styles for the message input container */
-.messageInputContainer {
-  width: 100%; /* Assuming full width */
-  position: relative; /* Assuming relative positioning */
-}
+/*----------------------------------------------------------------------------------------------*/
+/*I am adding the following*/
 
 /* Styles for the message input field */
 .messageInput {
@@ -579,6 +569,75 @@ body {
 }
 
 .messageSendButton:hover {
+  /* Styles for button hover state (optional) */
+  color: #212529; /* Example darker color on hover */
+}
+
+/*----------------------------------------------------------------------------------------------*/
+.message-input-form {
+  /* Existing styles from your class (like px-4 and my-3) */
+  padding: 1rem; /* Assuming px-4 translates to padding */
+  margin-top: 1rem;
+  margin-bottom: 1rem; /* Assuming my-3 translates to margin */
+}
+
+/* Styles for the message input container */
+.message-input-container {
+  width: 100%; /* Assuming full width */
+  position: relative; /* Assuming relative positioning */
+}
+
+/* Styles for the message input field */
+.message-input {
+  border: 1px solid #ccc; /* Assuming border translates to a solid border */
+  font-size: 0.875rem; /* Assuming text-sm translates to font-size */
+  border-radius: 0.5rem; /* Assuming rounded-lg translates to border radius */
+  display: block;
+  width: 90%;
+  padding: 0.75rem 1rem; /* Assuming p-2.5 translates to padding */
+  background-color: #f7fafc; /* Assuming bg-gray-700 translates to a light gray color */
+  border-color: #e2e8f0; /* Assuming border-gray-600 translates to a slightly darker gray color */
+  color: #212529; /* Assuming text-white translates to a dark color */
+}
+
+.message-input:focus {
+  /* Add styles for focused state (optional) */
+  outline: none; /* Remove default outline */
+  border-color: #86b7fe; /* Example blue border on focus */
+}
+
+.message-input::-webkit-input-placeholder {
+  /* For Chrome, Safari, etc. */
+  color: #97a7c3; /* Example placeholder text color */
+}
+
+.message-input:-moz-placeholder {
+  /* For Mozilla Firefox */
+  color: #97a7c3; /* Example placeholder text color */
+}
+
+.message-input[disabled] {
+  /* Styles for disabled state (optional) */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Styles for the message send button */
+.message-send-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; /* Adjust padding if needed */
+  cursor: pointer; /* Set cursor to pointer on hover */
+  background-color: transparent; /* Assuming no background color for the button */
+  border: none; /* Assuming no border for the button */
+  color: #97a7c3; /* Assuming a light color for the button icon */
+}
+
+.message-send-button:hover {
   /* Styles for button hover state (optional) */
   color: #212529; /* Example darker color on hover */
 }

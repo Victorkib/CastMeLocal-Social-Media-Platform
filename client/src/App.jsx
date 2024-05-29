@@ -22,6 +22,7 @@ import ChatApp from './ChatApp';
 import VerificationPage from './components/verification/VerificationPage';
 import EmailClickVerification from './components/verification/EmailClickVerification';
 import TestChatApp from './components/TestChatApp';
+import Deve from './components/underDeve/Deve';
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -72,6 +73,9 @@ function App() {
               user && user.regUser ? <OrigHome /> : <Navigate to="/login" />
             }
           />
+
+          <Route path="/profile" element={<Deve />} />
+          <Route path="/createUpload" element={<Deve />} />
           <Route path="/*" element={<NotFound />} />
         </Route>
 

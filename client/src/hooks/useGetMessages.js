@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useConversation from '../zustand/useConversation';
 import toast from 'react-hot-toast';
+import { apiUrl } from '../utils/api';
 
 const useGetMessages = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const useGetMessages = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://castmelocal.onrender.com/api/messages/${selectedConversation._id}`,
+          `${apiUrl}/api/messages/${selectedConversation._id}`,
           {
             method: 'GET',
             credentials: 'include',

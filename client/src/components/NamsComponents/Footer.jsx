@@ -7,13 +7,8 @@ import {
   faUser,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import useLogout from '../../hooks/useLogout';
 
 const Footer = () => {
-  const { logout } = useLogout();
-  const handleLogoutUser = () => {
-    logout();
-  };
   return (
     <footer className="footer bg-bgColor bg-opacity-50 text-ascent-2 px-4 py-8">
       <ul className="footer-links flex flex-wrap justify-center mt-4 lg:mt-0 border-yellow-500">
@@ -41,12 +36,12 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link to="/chat" className="menu-link lg:mr-4">
+          <Link to="/createUpload" className="menu-link lg:mr-4">
             <FontAwesomeIcon icon={faPlus} size="lg" className="footer-icon" />
           </Link>
         </li>
         <li>
-          <Link onClick={handleLogoutUser} className="menu-link lg:mr-4">
+          <Link to={'/profile'} className="menu-link lg:mr-4">
             <FontAwesomeIcon icon={faUser} size="lg" className="footer-icon" />
           </Link>
         </li>

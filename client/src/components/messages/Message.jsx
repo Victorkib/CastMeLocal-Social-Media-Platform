@@ -5,13 +5,13 @@ import useConversation from '../../zustand/useConversation';
 
 const Message = ({ message }) => {
   // const { authUser } = useAuthContext();
-  const user = useSelector((store) => store.user);
+  const { user } = useSelector((store) => store.user);
   const { selectedConversation } = useConversation();
-  const fromMe = message.senderId === user._id;
+  const fromMe = message.senderId === user.regUser._id;
   const formattedTime = extractTime(message.createdAt);
   const messageClassName = fromMe ? 'message-end' : 'message-start';
   const profilePic = fromMe
-    ? user.profilePic
+    ? user.regUser.profilePic
     : selectedConversation?.profilePic;
   const bubbleBgColor = fromMe ? 'bg-blue-500' : '';
   const shakeClass = message.shouldShake ? 'shake' : '';

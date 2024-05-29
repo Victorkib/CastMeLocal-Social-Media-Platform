@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useConversation from '../zustand/useConversation';
 import toast from 'react-hot-toast';
+import { apiUrl } from '../utils/api';
 
 const useSendMessage = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const useSendMessage = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://castmelocal.onrender.com/api/messages/send/${selectedConversation._id}`,
+        `${apiUrl}/api/messages/send/${selectedConversation._id}`,
         {
           method: 'POST',
           headers: {

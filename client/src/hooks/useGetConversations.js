@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { apiUrl } from '../utils/api';
 //import { apiUrl } from '../utils/api';
 
 const useGetConversations = () => {
@@ -10,7 +11,7 @@ const useGetConversations = () => {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch('https://castmelocal.onrender.com/api/users', {
+        const res = await fetch(`${apiUrl}/api/users`, {
           method: 'GET',
           credentials: 'include',
         });
