@@ -33,7 +33,8 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.CL_URL || 'http://localhost:3000',
+    origin:
+      'https://castmelocal-frontend.onrender.com' || 'http://localhost:3000',
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
