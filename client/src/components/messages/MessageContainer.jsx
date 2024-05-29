@@ -21,7 +21,7 @@ const MessageContainer = () => {
         axios.post(
           'https://castmelocal.onrender.com/api/mapUsers/user/location',
           {
-            userId: user._id,
+            userId: user.regUser._id,
             coordinates: coords,
           }
         );
