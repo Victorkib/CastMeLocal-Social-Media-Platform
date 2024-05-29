@@ -4,6 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import NavBar from './Navbar';
 import axios from 'axios';
+import { apiUrl } from '../../utils/api';
+import { Link } from 'react-router-dom';
 
 // Custom Icon
 const userIcon = new L.Icon({
@@ -18,7 +20,7 @@ const Map = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('/api/mapUsers/users');
+        const response = await axios.get(`${apiUrl}/api/mapUsers/users`);
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -52,10 +54,13 @@ const Map = () => {
                   <div>
                     <img
                       src={user.profilePic}
-                      alt={user.username}
+                      alt={user.firstName}
                       style={{ width: '50px', borderRadius: '50%' }}
                     />
-                    <p>{user.fullName}</p>
+                    <p>{user.firstName + user.lastName}</p>
+                    <h6>
+                      <Link to={'/chat'}>Chat</Link>
+                    </h6>
                   </div>
                 </Popup>
               </Marker>
