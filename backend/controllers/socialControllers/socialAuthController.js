@@ -78,8 +78,8 @@ module.exports.register = async (req, res) => {
       .cookie('jwt', token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 3,
-        //sameSite: 'none',
-        //secure: true,
+        sameSite: 'none',
+        secure: true,
       })
       .json({ regUser, token });
   } catch (err) {
@@ -141,8 +141,8 @@ module.exports.login = async (req, res) => {
       .cookie('jwt', token, {
         httpOnly: true,
         maxAge: maxAge * 1000,
-        //sameSite: 'none',
-        //secure: true,
+        sameSite: 'none',
+        secure: true,
       })
       .json({
         success: true,
