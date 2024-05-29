@@ -41,7 +41,7 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link to={'/profile'} className="menu-link lg:mr-4">
+          <Link to="/profile" className="menu-link lg:mr-4">
             <FontAwesomeIcon icon={faUser} size="lg" className="footer-icon" />
           </Link>
         </li>

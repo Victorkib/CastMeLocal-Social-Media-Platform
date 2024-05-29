@@ -74,11 +74,10 @@ function App() {
             }
           />
 
-          <Route path="/profile" element={<Deve />} />
-          <Route path="/createUpload" element={<Deve />} />
           <Route path="/*" element={<NotFound />} />
         </Route>
-
+        {/* <Route path="/profile" element={<Deve />} /> */}
+        <Route path="/createUpload" element={<Deve />} />
         <Route
           path="/verification"
           element={verifData ? <VerificationPage /> : <Register />}
