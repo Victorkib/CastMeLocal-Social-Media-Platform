@@ -71,7 +71,7 @@ const Home = () => {
             </div>
 
             <ProfileCard user={user} />
-            <FriendsCard friends={user.regUser?.friends} />
+            <FriendsCard friends={user?.friends} />
           </div>
 
           {/* CENTER */}
