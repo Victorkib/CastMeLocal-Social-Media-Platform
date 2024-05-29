@@ -34,18 +34,21 @@ const useSignup = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('/api/socials/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          password,
-          gender,
-        }),
-        credentials: 'include',
-      });
+      const res = await fetch(
+        'https://castmelocal.onrender.com/api/socials/auth/register',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            gender,
+          }),
+          credentials: 'include',
+        }
+      );
 
       const data = await res.json();
       console.log(data);

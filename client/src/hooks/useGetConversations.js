@@ -9,7 +9,7 @@ const useGetConversations = () => {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch('/api/users', {
+        const res = await fetch('https://castmelocal.onrender.com/api/users', {
           method: 'GET',
           credentials: 'include',
         });

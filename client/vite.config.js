@@ -9,8 +9,7 @@ export default defineConfig({
     target: 'es2015', // Ensure compatibility with older browsers
   },
   server: {
-    host: true,
-    strictPort: true,
+    port: 3000, // Specify the port where your frontend is running
     proxy: {
       '/api': {
         target: 'https://castmelocal.onrender.com', // Backend URL for production
