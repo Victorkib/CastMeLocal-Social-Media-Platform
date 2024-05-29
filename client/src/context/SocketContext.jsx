@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import io from 'socket.io-client';
 import { useSelector } from 'react-redux';
+import { apiUrl } from '../utils/api';
 
 const SocketContext = createContext();
 
@@ -15,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (user && user.regUser) {
-      const socket = io('https://castmelocal.onrender.com', {
+      const socket = io(apiUrl, {
         // Connect to backend URL in production
         query: {
           userId: user.regUser._id,

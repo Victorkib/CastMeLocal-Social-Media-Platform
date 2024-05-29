@@ -13,7 +13,7 @@ function ChatApp() {
   console.log(user);
   return (
     <div className="app-container">
-      {user.regUser ? <Home /> : <Login />}
+      {user && user.regUser ? <Home /> : <Login />}
 
       <Toaster />
     </div>
