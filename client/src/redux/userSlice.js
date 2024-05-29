@@ -23,6 +23,7 @@ const userSlice = createSlice({
     },
   },
 });
+
 export default userSlice.reducer;
 
 export function UserLogin(user) {

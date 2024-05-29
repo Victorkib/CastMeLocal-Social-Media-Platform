@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { Logout } from '../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { resetAfterRegisteredData } from '../features/emailSent/afterRegisterDataSlice';
 
 const useLogout = () => {
   const [loading, setLoading] = useState(false);
@@ -19,11 +20,12 @@ const useLogout = () => {
         credentials: 'include',
       });
       const data = await res.json();
-      if (data.error) {
+      if (!data.status === 200) {
         throw new Error(data.error);
       }
 
-      localStorage.removeItem('chat-user');
+      //localStorage.removeItem('chat-user');
+      dispatch(resetAfterRegisteredData());
       dispatch(Logout());
       setAuthUser(null);
       navigate('/login');
