@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { apiUrl } from '../utils/api';
-//import { apiUrl } from '../utils/api';
 
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
