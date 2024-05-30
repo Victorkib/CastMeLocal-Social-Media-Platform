@@ -28,10 +28,10 @@ const useLogout = () => {
         throw new Error(data.error);
       }
 
-      //localStorage.removeItem('chat-user');
       dispatch(resetAfterRegisteredData());
       dispatch(Logout());
       setAuthUser(null);
+      localStorage.removeItem('chat-user');
       navigate('/login');
     } catch (error) {
       toast.error(error.message);

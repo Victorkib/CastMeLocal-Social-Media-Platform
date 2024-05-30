@@ -6,7 +6,7 @@ const {
   compareString,
 } = require('../../utils/index.js');
 const { sendVerificationEmail } = require('../../utils/sendEmail.js');
-const maxAge = 3 * 24 * 60 * 60;
+const maxage = 2 * 24 * 60 * 60;
 
 /* Register */
 module.exports.register = async (req, res) => {
@@ -94,7 +94,7 @@ module.exports.register = async (req, res) => {
       .status(201)
       .cookie('jwt', token, {
         httpOnly: true,
-        maxAge: maxAge * 1000,
+        maxAge: maxage * 1000,
         sameSite: 'none', // Allows cross-site requests
         secure: true, // Ensures the cookie is only sent over HTTPS
       })
@@ -160,7 +160,7 @@ module.exports.login = async (req, res) => {
       .status(200)
       .cookie('jwt', token, {
         httpOnly: true,
-        maxAge: maxAge * 1000,
+        maxAge: maxage * 1000,
         sameSite: 'none', // Allows cross-site requests
         secure: true, // Ensures the cookie is only sent over HTTPS
       })
@@ -179,8 +179,10 @@ module.exports.login = async (req, res) => {
 // Logout controller
 module.exports.logout = (req, res) => {
   try {
-    res.cookie('jwt', '', { maxAge: new Date(0) });
-    res.status(200).json({ message: 'Logged out successfully' });
+    res
+      .status(200)
+      .cookie('jwt', '', { maxAge: new Date(0) })
+      .json({ message: 'Logged out successfully' });
   } catch (error) {
     console.log('Error in logout controller', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
