@@ -24,11 +24,14 @@ const VerificationPage = () => {
 
   const handleResendEmail = async () => {
     try {
-      const res = await fetch('/api/socials/auth/resend-verification', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: afterRegisterData.user.email }),
-      });
+      const res = await fetch(
+        'https://castmelocalbackend.onrender.com/api/socials/auth/resend-verification',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: afterRegisterData.user.email }),
+        }
+      );
       const responseData = await res.json();
       if (responseData.error) {
         throw new Error(responseData.error);

@@ -13,7 +13,7 @@ const EmailClickVerification = () => {
     const verifyEmail = async () => {
       try {
         const response = await axios.get(
-          `/api/socials/users/verify/${userId}/${token}`
+          `https://castmelocalbackend.onrender.com/api/socials/users/verify/${userId}/${token}`
         );
         setStatus(response.data.status);
         setMessage(response.data.message);

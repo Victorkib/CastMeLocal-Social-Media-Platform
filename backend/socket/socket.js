@@ -7,7 +7,6 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: 'https://castmelocal-frontend.onrender.com',
-    // Use the environment variable for frontend URL
     methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
     allowedHeaders: ['Content-Type'],
     credentials: true,

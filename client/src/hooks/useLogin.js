@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { UserLogin } from '../redux/userSlice';
 import { setAfterRegisteredData } from '../features/emailSent/afterRegisterDataSlice';
-import { apiUrl } from '../utils/api';
+//import { apiUrl } from '../utils/api';
 
 const useLogin = () => {
   const dispatch = useDispatch();
@@ -17,12 +17,15 @@ const useLogin = () => {
     setError(null); // Reset error state
     setLoading(true);
     try {
-      const res = await fetch(`${apiUrl}/api/socials/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-        credentials: 'include',
-      });
+      const res = await fetch(
+        `https://castmelocalbackend.onrender.com/api/socials/auth/login`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+          credentials: 'include',
+        }
+      );
 
       const data = await res.json();
       if (!res.ok) {
