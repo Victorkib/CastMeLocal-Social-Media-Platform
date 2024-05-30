@@ -24,7 +24,7 @@ const useLogout = () => {
         }
       );
       const data = await res.json();
-      if (!data.status === 200) {
+      if (!data.status == 200) {
         throw new Error(data.error);
       }
 
