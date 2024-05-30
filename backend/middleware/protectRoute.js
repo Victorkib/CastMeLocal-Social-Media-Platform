@@ -25,7 +25,7 @@ const protectRoute = async (req, res, next) => {
     const user = await SocialUsers.findById(decoded.userId).select('-password'); // Exclude password from user object
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).json({ error: 'User not foundww' });
     }
 
     // Attach the user object to the request object for further use
