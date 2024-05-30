@@ -3,14 +3,13 @@ import useConversation from '../../zustand/useConversation';
 import MessageInput from './MessageInput';
 import Messages from './Messages';
 import { TiMessages } from 'react-icons/ti';
-//import { useAuthContext } from '../../context/AuthContext';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { apiUrl } from '../../utils/api';
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  //const { authUser } = useAuthContext();
   const { user } = useSelector((state) => state.user);
   const [location, setLocation] = useState(null);
 
@@ -27,15 +26,23 @@ const MessageContainer = () => {
     }
 
     return () => setSelectedConversation(null);
-  }, [setSelectedConversation, user, setLocation]);
+  }, [setSelectedConversation, user]);
 
   return (
-    <div className="message-container">
+    <div
+      className={`message-container ${selectedConversation ? 'active' : ''}`}
+    >
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           <div className="message-header">
+            <button
+              className="back-button"
+              onClick={() => setSelectedConversation(null)}
+            >
+              <AiOutlineArrowLeft />
+            </button>
             <span className="label-text">To:</span>
             <span className="message-recipient">
               {selectedConversation.firstName}
@@ -52,9 +59,8 @@ const MessageContainer = () => {
 export default MessageContainer;
 
 const NoChatSelected = () => {
-  //const { authUser } = useAuthContext();
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+
   return (
     <div className="no-chat-selected">
       <div className="no-chat-selected-text">

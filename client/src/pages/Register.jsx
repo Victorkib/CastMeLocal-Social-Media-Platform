@@ -32,8 +32,9 @@ const Register = () => {
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password } = data;
     setIsSubmitting(true);
+    setErrMsg(''); // Clear previous error message
     try {
-      await signup({
+      const result = await signup({
         firstName,
         lastName,
         email,
@@ -41,17 +42,22 @@ const Register = () => {
         confirmPassword: password,
         gender,
       });
+
+      if (!result.success) {
+        if (result.errors) {
+          setErrMsg(result.errors.join('\n'));
+        } else if (result.backendError) {
+          setErrMsg(result.backendError);
+        }
+      }
     } catch (error) {
-      setErrMsg(error.message);
+      console.error(error);
+      setErrMsg('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
   };
-  //const navigate = useNavigate();
-  // const handleSubtleClick = (e) => {
-  //   e.preventDefault();
-  //   navigate('/');
-  // };
+
   return (
     <div className="bg-bgColor w-full h-[100vh] flex items-center justify-center p-6">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex flex-row-reverse bg-primary rounded-xl overflow-hidden shadow-xl bg-opacity-85">
@@ -150,16 +156,8 @@ const Register = () => {
               selectedGender={gender}
             />
 
-            {errMsg?.message && (
-              <span
-                className={`text-sm ${
-                  errMsg?.status === 'failed'
-                    ? 'text-[#f64949fe]'
-                    : 'text-[#2ba150fe]'
-                } mt-0.5`}
-              >
-                {errMsg?.message}
-              </span>
+            {errMsg && (
+              <span className="text-sm text-[#f64949fe] mt-0.5">{errMsg}</span>
             )}
 
             {isSubmitting ? (
@@ -169,7 +167,6 @@ const Register = () => {
                 type="submit"
                 containerStyles={`inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none`}
                 title="Create Account"
-                // onClick={handleSubtleClick}
               />
             )}
           </form>
@@ -203,19 +200,10 @@ const Register = () => {
               <span className="text-xs font-medium">Connect</span>
             </div>
 
-            <div className="absolute flex items-center gap-1 bg-white left-12 bottom-6 py-2 px-5 rounded-full">
+            <div className="absolute flex items-center gap-1 bg-white right-10 bottom-6 py-2 px-5 rounded-full">
               <AiOutlineInteraction />
               <span className="text-xs font-medium">Interact</span>
             </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-white text-base">
-              Connect with friends & have share for fun
-            </p>
-            <span className="text-sm text-white/80">
-              Share memories, moments and interact with friends
-            </span>
           </div>
         </div>
       </div>

@@ -17,18 +17,17 @@ const Login = () => {
     mode: 'onChange',
   });
 
-  const { login, loading } = useLogin(); // Use the login function and loading state from useLoginHook
+  const { login, loading, error } = useLogin();
   //const navigate = useNavigate();
   // const handleSubtleClick = () => {
   //   navigate('/');
   // };
   const onSubmit = async (data) => {
-    console.log(data);
     const { email, password } = data;
     try {
-      await login(email, password); // Call login with email and password
+      await login(email, password);
     } catch (error) {
-      console.error('Login error:', error); // Handle errors gracefully (log for debugging)
+      console.error('Login error:', error);
     }
   };
 
@@ -67,7 +66,6 @@ const Login = () => {
               labelStyle="ml-2"
               error={errors.email ? errors.email.message : ''}
             />
-
             <TextInput
               name="password"
               label="Password"
@@ -80,14 +78,14 @@ const Login = () => {
               })}
               error={errors.password ? errors.password.message : ''}
             />
-
             <Link
               to="/reset-password"
               className="text-sm text-right text-blue font-semibold"
             >
               Forgot Password?
             </Link>
-
+            {error && <p className="text-red-500">{error}</p>}{' '}
+            {/* Display backend error */}
             {loading ? (
               <Loading />
             ) : (

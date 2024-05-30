@@ -204,6 +204,7 @@ body {
 
 .message-header {
   background-color: #64748b; /* bg-slate-500 */
+  border-radius: 12px;
   padding-left: 1rem; /* px-4 */
   padding-right: 1rem; /* px-4 */
   padding-top: 0.5rem; /* py-2 */
@@ -219,6 +220,7 @@ body {
   color: #1f2937; /* text-gray-900 */
   font-weight: 700; /* font-bold */
 }
+
 /* Additional styles for Login component */
 .login-container {
   display: flex;
@@ -444,6 +446,7 @@ body {
   display: flex;
   align-items: flex-end;
   margin-bottom: 10px;
+  /* border: 1px solid yellow; */
 }
 
 .message-start {
@@ -455,8 +458,8 @@ body {
 }
 
 .message-image.avatar .w-10.rounded-full {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -469,11 +472,13 @@ body {
 
 .message-bubble {
   position: relative;
-  max-width: 75%;
+  text-align: justify;
+  max-width: 60%;
   padding: 10px 15px;
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  word-wrap: break-word;
 }
 
 .bg-blue-500 {
@@ -518,7 +523,7 @@ body {
 /*I am adding the following*/
 
 /* Styles for the message input field */
-.messageInput {
+.message-input {
   border: 1px solid #ccc; /* Assuming border translates to a solid border */
   font-size: 0.875rem; /* Assuming text-sm translates to font-size */
   border-radius: 0.5rem; /* Assuming rounded-lg translates to border radius */
@@ -530,30 +535,30 @@ body {
   color: #212529; /* Assuming text-white translates to a dark color */
 }
 
-.messageInput:focus {
+.message-input:focus {
   /* Add styles for focused state (optional) */
   outline: none; /* Remove default outline */
   border-color: #86b7fe; /* Example blue border on focus */
 }
 
-.messageInput::-webkit-input-placeholder {
+.message-input::-webkit-input-placeholder {
   /* For Chrome, Safari, etc. */
   color: #97a7c3; /* Example placeholder text color */
 }
 
-.messageInput:-moz-placeholder {
+.message-input:-moz-placeholder {
   /* For Mozilla Firefox */
   color: #97a7c3; /* Example placeholder text color */
 }
 
-.messageInput[disabled] {
+.message-input[disabled] {
   /* Styles for disabled state (optional) */
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Styles for the message send button */
-.messageSendButton {
+.message-send-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -567,7 +572,7 @@ body {
   color: #97a7c3; /* Assuming a light color for the button icon */
 }
 
-.messageSendButton:hover {
+.message-send-button:hover {
   /* Styles for button hover state (optional) */
   color: #212529; /* Example darker color on hover */
 }
@@ -629,7 +634,7 @@ body {
   bottom: 0;
   display: flex;
   align-items: center;
-  padding: 0 1rem; /* Adjust padding if needed */
+  padding: 0 3rem; /* Adjust padding if needed */
   cursor: pointer; /* Set cursor to pointer on hover */
   background-color: transparent; /* Assuming no background color for the button */
   border: none; /* Assuming no border for the button */
@@ -638,12 +643,13 @@ body {
 
 .message-send-button:hover {
   /* Styles for button hover state (optional) */
-  color: #212529; /* Example darker color on hover */
+  color: #cf6916; /* Example darker color on hover */
 }
 
 .messages {
   padding: 1rem;
   flex: 1;
+  /* border: 1px solid crimson; */
   overflow: auto;
 }
 
@@ -659,6 +665,7 @@ body {
   padding: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  border-radius: 14px;
   cursor: pointer;
 }
 .conversation-container:hover {
@@ -707,7 +714,7 @@ body {
   justify-content: space-between;
 }
 .conversation-name {
-  font-weight: 700;
+  font-weight: 400;
   color: #e5e7eb;
 }
 .conversation-emoji {
@@ -764,3 +771,92 @@ body {
   font-size: 3.75rem; /* md:text-6xl */
   text-align: center;
 }
+
+/************************************************************************************************/
+/* Home.css */
+.home-container {
+  display: flex;
+  height: 100vh;
+}
+
+.home-container.show-sidebar .message-container {
+  display: none;
+}
+
+.home-container.show-message-container .sidebar-container {
+  display: none;
+}
+
+.sidebar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+  /* border: 1px solid crimson; */
+}
+.message-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .home-container.show-sidebar .message-container,
+  .home-container.show-message-container .sidebar-container {
+    display: flex;
+  }
+  .sidebar-container {
+    flex: 1;
+    max-width: 55%; /* Adjust as needed */
+  }
+  .message-container {
+    flex: 2;
+    max-width: 45%; /* Adjust as needed */
+  }
+}
+@media (max-width: 768px) {
+  .sidebar-container {
+    height: 100vh;
+  }
+}
+
+/* MessageContainer.css */
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #64748b;
+}
+
+.message-header .back-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.no-chat-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.no-chat-selected-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .message-header .back-button {
+    display: none;
+  }
+}
+
+/************************************************************************************************/

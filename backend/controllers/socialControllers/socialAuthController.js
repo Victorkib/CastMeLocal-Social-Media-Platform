@@ -1,5 +1,5 @@
 const SocialUsers = require('../../models/socialModels/userSocialModel.js');
-//const generateTokenAndSetCookie = require('../../utils/generateToken.js');
+const { isEmail, isStrongPassword } = require('validator');
 const {
   hashString,
   createJWT,
@@ -7,6 +7,7 @@ const {
 } = require('../../utils/index.js');
 const { sendVerificationEmail } = require('../../utils/sendEmail.js');
 const maxAge = 3 * 24 * 60 * 60;
+
 /* Register */
 module.exports.register = async (req, res) => {
   const { firstName, lastName, email, password, gender } = req.body;
@@ -22,7 +23,29 @@ module.exports.register = async (req, res) => {
   if (!firstName || !lastName || !email || !password || !gender) {
     return res
       .status(400)
-      .json({ success: false, message: 'Provide Required Fields!' });
+      .json({ success: false, error: 'Provide Required Fields!' });
+  }
+
+  // Validate correct Email
+  if (!isEmail(email)) {
+    return res
+      .status(400)
+      .json({ success: false, error: 'Invalid email format' });
+  }
+
+  // Validate strong password
+  if (
+    !isStrongPassword(password, {
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
+    })
+  ) {
+    const error =
+      'Password must contain:\n - At least one lowercase letter (a-z)\n - At least one uppercase letter (A-Z)\n - At least one number (0-9)\n - At least one special character (!@#$%^&*)';
+    return res.status(400).json({ success: false, error });
   }
 
   try {
@@ -31,7 +54,7 @@ module.exports.register = async (req, res) => {
     if (userExist) {
       return res
         .status(400)
-        .json({ success: false, message: 'Email Address already exists' });
+        .json({ success: false, error: 'Email address already exists' });
     }
 
     const hashedPassword = await hashString(password);
@@ -64,27 +87,26 @@ module.exports.register = async (req, res) => {
     // Exclude the password from the user object
     regUser.password = undefined;
 
-    // success: true,
-    // message: 'User registered successfully',
-    // emailMessage: emailResult.emailMessage,
-
+    // Generate JWT token
     const token = createJWT(regUser._id);
 
-    // Generate JWT token
-    // generateTokenAndSetCookie(regUser._id, res);
-    // await regUser.save();
     res
       .status(201)
       .cookie('jwt', token, {
         httpOnly: true,
         maxAge: maxAge * 1000,
-        sameSite: 'none',
-        secure: true,
+        sameSite: 'none', // Allows cross-site requests
+        secure: true, // Ensures the cookie is only sent over HTTPS
       })
-      .json({ regUser, token });
+      .json({
+        success: true,
+        message: 'Registered successfully',
+        regUser,
+        token,
+      });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: 'Server Error' });
+    res.status(500).json({ success: false, error: 'Server Error' });
   }
 };
 
@@ -96,7 +118,7 @@ module.exports.login = async (req, res) => {
   if (!email || !password) {
     return res
       .status(400)
-      .json({ success: false, message: 'Please provide user credentials' });
+      .json({ success: false, error: 'Please provide user credentials' });
   }
 
   try {
@@ -111,14 +133,13 @@ module.exports.login = async (req, res) => {
     if (!regUser) {
       return res
         .status(400)
-        .json({ success: false, message: 'Invalid email or password' });
+        .json({ success: false, error: 'Invalid email or password' });
     }
 
     // if (!regUser.verified) {
     //   return res.status(400).json({
     //     success: false,
-    //     message:
-    //       'User email is not verified. Check your email account and verify your email',
+    //     error: 'User email is not verified. Check your email account and verify your email',
     //   });
     // }
 
@@ -128,21 +149,20 @@ module.exports.login = async (req, res) => {
     if (!isMatch) {
       return res
         .status(400)
-        .json({ success: false, message: 'Invalid email or password' });
+        .json({ success: false, error: 'Invalid email or password' });
     }
 
     regUser.password = undefined; // Exclude password from response
 
     const token = createJWT(regUser._id);
-    //generateTokenAndSetCookie(user._id, res);
 
     res
       .status(200)
       .cookie('jwt', token, {
         httpOnly: true,
         maxAge: maxAge * 1000,
-        sameSite: 'none',
-        secure: true,
+        sameSite: 'none', // Allows cross-site requests
+        secure: true, // Ensures the cookie is only sent over HTTPS
       })
       .json({
         success: true,
@@ -152,7 +172,7 @@ module.exports.login = async (req, res) => {
       });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server Error' });
+    res.status(500).json({ success: false, error: 'Server Error' });
   }
 };
 
@@ -166,5 +186,3 @@ module.exports.logout = (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-
-//module.exports = { register, login }; // Export both functions

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
-//import { useAuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { setAfterRegisteredData } from '../features/emailSent/afterRegisterDataSlice';
 import { useAuthContext } from '../context/AuthContext';
@@ -12,7 +11,6 @@ const useSignup = () => {
   const dispatch = useDispatch();
   const { setAuthUser } = useAuthContext();
   const [loading, setLoading] = useState(false);
-  //const { setAuthUser } = useAuthContext();
   const navigate = useNavigate();
 
   const signup = async ({
@@ -23,7 +21,7 @@ const useSignup = () => {
     confirmPassword,
     gender,
   }) => {
-    const success = handleInputErrors({
+    const inputErrors = handleInputErrors({
       firstName,
       lastName,
       email,
@@ -31,7 +29,9 @@ const useSignup = () => {
       confirmPassword,
       gender,
     });
-    if (!success) return;
+    if (inputErrors.length > 0) {
+      return { success: false, errors: inputErrors };
+    }
 
     setLoading(true);
     try {
@@ -49,22 +49,19 @@ const useSignup = () => {
       });
 
       const data = await res.json();
-      console.log(data);
-
-      if (!res.status === 201) {
-        throw new Error(data.message);
+      if (!res.ok) {
+        throw new Error(data.error);
       }
 
-      if (res.status === 201) {
-        //alert('all is success');
-        dispatch(UserLogin(data));
-        dispatch(setAfterRegisteredData(data));
-        localStorage.setItem('chat-user', JSON.stringify(data));
-        setAuthUser(data);
-        navigate('/');
-      }
+      dispatch(UserLogin(data));
+      dispatch(setAfterRegisteredData(data));
+      localStorage.setItem('chat-user', JSON.stringify(data));
+      setAuthUser(data);
+      navigate('/');
+      return { success: true };
     } catch (error) {
       toast.error(error.message);
+      return { success: false, backendError: error.message };
     } finally {
       setLoading(false);
     }
@@ -72,8 +69,6 @@ const useSignup = () => {
 
   return { loading, signup };
 };
-
-export default useSignup;
 
 function handleInputErrors({
   firstName,
@@ -83,27 +78,34 @@ function handleInputErrors({
   confirmPassword,
   gender,
 }) {
-  if (
-    !firstName ||
-    !lastName ||
-    !email ||
-    !password ||
-    !confirmPassword ||
-    !gender
-  ) {
-    toast.error('Please fill in all fields');
-    return false;
-  }
+  const errors = [];
 
+  if (!firstName) {
+    errors.push('First Name is required');
+  }
+  if (!lastName) {
+    errors.push('Last Name is required');
+  }
+  if (!email) {
+    errors.push('Email Address is required');
+  }
+  if (!password) {
+    errors.push('Password is required');
+  }
+  if (!confirmPassword) {
+    errors.push('Confirm Password is required');
+  }
+  if (!gender) {
+    errors.push('Gender is required');
+  }
   if (password !== confirmPassword) {
-    toast.error('Passwords do not match');
-    return false;
+    errors.push('Passwords do not match');
   }
-
   if (password.length < 6) {
-    toast.error('Password must be at least 6 characters');
-    return false;
+    errors.push('Password must be at least 6 characters');
   }
 
-  return true;
+  return errors;
 }
+
+export default useSignup;

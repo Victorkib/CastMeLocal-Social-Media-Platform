@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import { useAuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux'; //useSelector
+import { useDispatch } from 'react-redux';
 import { UserLogin } from '../redux/userSlice';
 import { setAfterRegisteredData } from '../features/emailSent/afterRegisterDataSlice';
 import { apiUrl } from '../utils/api';
@@ -10,13 +9,12 @@ import { apiUrl } from '../utils/api';
 const useLogin = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const { setAuthUser } = useAuthContext();
-  //const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const login = async (email, password) => {
-    const success = handleInputErrors(email, password);
-    if (!success) return;
+    setError(null); // Reset error state
     setLoading(true);
     try {
       const res = await fetch(`${apiUrl}/api/socials/auth/login`, {
@@ -27,35 +25,25 @@ const useLogin = () => {
       });
 
       const data = await res.json();
-      if (!res.status === 200) {
-        throw new Error(data.message);
+      if (!res.ok) {
+        // Backend error
+        throw new Error(data.error);
       }
-      console.log(data.message);
-      console.log(data);
-      if (res.status === 200) {
-        // alert('all is success in login');
-        dispatch(UserLogin(data));
-        dispatch(setAfterRegisteredData(data));
-        localStorage.setItem('chat-user', JSON.stringify(data));
-        setAuthUser(data);
-        navigate('/');
-      }
+
+      dispatch(UserLogin(data));
+      dispatch(setAfterRegisteredData(data));
+      localStorage.setItem('chat-user', JSON.stringify(data));
+      setAuthUser(data);
+      navigate('/');
     } catch (error) {
-      toast.error(error);
+      // Backend error
+      setError(error.message);
     } finally {
       setLoading(false);
     }
   };
 
-  return { loading, login };
+  return { loading, error, login };
 };
+
 export default useLogin;
-
-function handleInputErrors(email, password) {
-  if (!email || !password) {
-    toast.error('Please fill in all fields');
-    return false;
-  }
-
-  return true;
-}
