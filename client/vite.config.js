@@ -12,7 +12,7 @@ export default defineConfig({
     port: 3000, // Specify the port where your frontend is running
     proxy: {
       '/api': {
-        target: 'https://castmelocal.onrender.com', // Backend URL for production
+        target: 'https://castmelocalbackend.onrender.com', // Backend URL for production
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove '/api' prefix
       },
