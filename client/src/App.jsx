@@ -14,7 +14,7 @@ import OrigLogin from './pages/login/OrigLogin';
 import OrigSignUp from './pages/signup/OrigSignUp';
 import Map from './components/NamsComponents/Map';
 import UserSearch from './components/NamsComponents/UserSearch';
-import OrigProfile from './components/NamsComponents/OrigProfile';
+//import OrigProfile from './components/NamsComponents/OrigProfile';
 import Explore from './components/NamsComponents/Explore';
 import NotFound from './pages/NamsPages/NotFound';
 import ChatApp from './ChatApp';
@@ -65,7 +65,7 @@ function App() {
             }
           />
           <Route path="/userSearch" element={<UserSearch />} />
-          <Route path="/profile" element={<OrigProfile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/explore" element={<Explore />} />
           <Route
             path="/home"

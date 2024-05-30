@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { apiUrl } from '../../utils/api';
 
 const EmailClickVerification = () => {
   const { userId, token } = useParams();
@@ -13,7 +14,7 @@ const EmailClickVerification = () => {
     const verifyEmail = async () => {
       try {
         const response = await axios.get(
-          `https://castmelocalbackend.onrender.com/api/socials/users/verify/${userId}/${token}`
+          `${apiUrl}/api/socials/users/verify/${userId}/${token}`
         );
         setStatus(response.data.status);
         setMessage(response.data.message);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers } from '../features/users/userSlice';
+import { apiUrl } from '../../utils/api';
 
 const Test = () => {
   const users = useSelector((store) => store.usersData.users);
@@ -10,9 +11,7 @@ const Test = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          'http://localhost:6500/castmelocal/api/users/getallusers'
-        );
+        const response = await fetch(`${apiUrl}/api/users/getallusers`);
         console.log(response);
         const json = await response.json();
         console.log(json);

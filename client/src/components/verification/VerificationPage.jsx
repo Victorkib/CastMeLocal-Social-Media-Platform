@@ -5,6 +5,7 @@ import { CustomButton, Loading } from '..';
 import toast from 'react-hot-toast';
 import './verification.css';
 import { useSelector } from 'react-redux';
+import { apiUrl } from '../../utils/api';
 
 const VerificationPage = () => {
   const afterRegisterData = useSelector(
@@ -25,7 +26,7 @@ const VerificationPage = () => {
   const handleResendEmail = async () => {
     try {
       const res = await fetch(
-        'https://castmelocalbackend.onrender.com/api/socials/auth/resend-verification',
+        `${apiUrl}/api/socials/auth/resend-verification`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
