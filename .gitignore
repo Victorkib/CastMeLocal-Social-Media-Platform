@@ -5,7 +5,7 @@ node_modules/
 .env
 
 # Build outputs
-client/build/
+client/dist/
 backend/build/
 
 # OS generated files
