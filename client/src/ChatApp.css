@@ -817,7 +817,7 @@ body {
 }
 @media (max-width: 768px) {
   .sidebar-container {
-    height: 100vh;
+    height: 90%;
   }
 }
 
