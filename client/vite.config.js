@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist',
+    outDir: 'dist', // This should be the default
     emptyOutDir: true,
     target: 'es2015', // Ensure compatibility with older browsers
   },
