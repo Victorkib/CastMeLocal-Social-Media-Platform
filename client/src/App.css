@@ -279,8 +279,8 @@
 
   .footer-links li {
     margin: 5px 0; /* Adjust margin for smaller screens */
-    border: 1px solid whitesmoke;
-    border-radius: 22px;
+    /* border: 1px solid whitesmoke;
+    border-radius: 22px; */
     padding: 2px;
     margin-bottom: 2px;
     width: 60px;
