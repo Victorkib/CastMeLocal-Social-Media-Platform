@@ -1,19 +1,20 @@
 import { useNavigate } from 'react-router-dom';
-//import { useAuthContext } from '../../context/AuthContext';
 import { CustomButton, Loading } from '..';
 import toast from 'react-hot-toast';
 import './verification.css';
 import { useSelector } from 'react-redux';
 import { apiUrl } from '../../utils/api';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const VerificationPage = () => {
-  //const location = useLocation();
   const navigate = useNavigate();
-  //const { setAuthUser } = useAuthContext();
   const { user } = useSelector((state) => state.user);
+  const [userMessage, setUserMessage] = useState(user);
 
-  useEffect(() => {}, [user]);
+  useEffect(() => {
+    setUserMessage(user);
+  }, [user]);
+
   const handleResendEmail = async () => {
     try {
       const res = await fetch(
@@ -39,7 +40,7 @@ const VerificationPage = () => {
       <h1>Verify Your Email</h1>
       {user.success ? (
         <>
-          <p>{user.emailMessage.message}</p>
+          <p>{userMessage.emailMessage.message}</p>
           <CustomButton
             onClick={() => navigate('/')}
             containerStyles="inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none"
