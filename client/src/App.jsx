@@ -37,15 +37,15 @@ function Layout() {
 
 function App() {
   const { user } = useSelector((state) => state.user);
-  const afterRegisterData = useSelector(
-    (store) => store.afterRegisterData?.afterRegisterData
-  );
+  // const afterRegisterData = useSelector(
+  //   (store) => store.afterRegisterData?.afterRegisterData
+  // );
   const [verifData, setVerifData] = useState(false);
 
   // const { authUser } = useAuthContext();
   useEffect(() => {
-    setVerifData(!!afterRegisterData);
-  }, [afterRegisterData, user]);
+    setVerifData(!!user);
+  }, [user]);
 
   const { theme } = useSelector((state) => state.theme);
 
@@ -80,10 +80,10 @@ function App() {
         <Route path="/createUpload" element={<Deve />} />
         <Route
           path="/verification"
-          element={verifData ? <VerificationPage /> : <Register />}
+          element={verifData ? <VerificationPage /> : <Register />} //the page the user is sent after registering/Logging In
         />
-        <Route
-          path="/api/socials/users/reset-password/:id/:token"
+        <Route //page user is to be sent after clinking the link in Email.
+          path="/api/socials/users/verify/:userId/:token"
           element={<EmailClickVerification />}
         />
         <Route path="/register" element={<Register />} />

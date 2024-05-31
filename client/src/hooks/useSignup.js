@@ -57,7 +57,7 @@ const useSignup = () => {
       dispatch(setAfterRegisteredData(data));
       localStorage.setItem('chat-user', JSON.stringify(data));
       setAuthUser(data);
-      navigate('/');
+      navigate('/verification');
       return { success: true };
     } catch (error) {
       toast.error(error.message);

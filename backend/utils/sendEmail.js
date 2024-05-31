@@ -66,10 +66,10 @@ async function sendNodemailerEmail(mailOptions) {
   }
 }
 
-exports.sendVerificationEmail = async (user) => {
-  const { _id, email, lastName } = user;
+exports.sendVerificationEmail = async (regUser) => {
+  const { _id, email, lastName } = regUser;
   const token = _id + uuidv4();
-  const link = CL_URL + '/api/socials/users/verify/' + _id + '/' + token;
+  const link = CL_URL + '/api/socials/users/verify/' + _id + '/' + token; //cl_URL is the hosted endpoint
   //http://localhost:3000/api/socials/users/verify/ + _id + '/' + token
   const mailOptions = {
     from: AUTH_EMAIL,
@@ -81,7 +81,7 @@ exports.sendVerificationEmail = async (user) => {
         <hr>
         <h4>Hi ${lastName},</h4>
         <p>
-          Through EMail Verification, we are able to know that it's really you 🧑.
+          Through Email Verification, we are able to know that it's really you 🧑.
           <br>
           This link <b>expires in 1 hour</b>
         </p>
@@ -120,7 +120,7 @@ exports.sendVerificationEmail = async (user) => {
     return { success: false, error: 'Failed to send verification email' };
   }
 };
-
+/*Reset Password Link */
 exports.resetPasswordLink = async (user) => {
   const { _id, email } = user;
   const token = _id + uuidv4();

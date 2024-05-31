@@ -74,15 +74,15 @@ module.exports.register = async (req, res) => {
 
     console.log('Registered user:', regUser);
 
-    // Send verification email to the user
-    // const emailResult = await sendVerificationEmail(regUser);
-    // if (!emailResult.success) {
-    //   return res.status(500).json({
-    //     success: false,
-    //     message: emailResult.error,
-    //     emailMessage: emailResult.emailMessage,
-    //   });
-    // }
+    //Send verification email to the user
+    const emailResult = await sendVerificationEmail(regUser);
+    if (!emailResult.success) {
+      return res.status(500).json({
+        success: false,
+        error: emailResult.error,
+        // emailMessage: emailResult.emailMessage,
+      });
+    }
 
     // Exclude the password from the user object
     regUser.password = undefined;
@@ -100,6 +100,7 @@ module.exports.register = async (req, res) => {
       })
       .json({
         success: true,
+        emailMessage: emailResult.emailMessage,
         message: 'Registered successfully',
         regUser,
         token,
@@ -136,12 +137,13 @@ module.exports.login = async (req, res) => {
         .json({ success: false, error: 'Invalid email or password' });
     }
 
-    // if (!regUser.verified) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     error: 'User email is not verified. Check your email account and verify your email',
-    //   });
-    // }
+    if (!regUser.verified) {
+      return res.status(400).json({
+        success: false,
+        error:
+          'User email is not verified. Check your email account and verify your email',
+      });
+    }
 
     // Compare password
     const isMatch = await compareString(password, regUser.password);

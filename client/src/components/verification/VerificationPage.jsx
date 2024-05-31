@@ -1,28 +1,19 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContext';
+//import { useAuthContext } from '../../context/AuthContext';
 import { CustomButton, Loading } from '..';
 import toast from 'react-hot-toast';
 import './verification.css';
 import { useSelector } from 'react-redux';
 import { apiUrl } from '../../utils/api';
+import { useEffect } from 'react';
 
 const VerificationPage = () => {
-  const afterRegisterData = useSelector(
-    (store) => store.afterRegDt.afterRegisterData
-  );
   //const location = useLocation();
   const navigate = useNavigate();
-  const { setAuthUser } = useAuthContext();
-  //const data = afterRegisterData;
-  console.log('data recieved from useSignup.js' + afterRegisterData);
-  useEffect(() => {
-    if (afterRegisterData) {
-      localStorage.setItem('chat-user', JSON.stringify(afterRegisterData.user));
-      setAuthUser(afterRegisterData.user);
-    }
-  }, [afterRegisterData, setAuthUser]);
+  //const { setAuthUser } = useAuthContext();
+  const { user } = useSelector((state) => state.user);
 
+  useEffect(() => {}, [user]);
   const handleResendEmail = async () => {
     try {
       const res = await fetch(
@@ -30,7 +21,7 @@ const VerificationPage = () => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: afterRegisterData.user.email }),
+          body: JSON.stringify({ email: user.regUser.email }),
         }
       );
       const responseData = await res.json();
@@ -46,9 +37,9 @@ const VerificationPage = () => {
   return (
     <div className="verification-container">
       <h1>Verify Your Email</h1>
-      {afterRegisterData ? (
+      {user.success ? (
         <>
-          <p>{afterRegisterData.VerificationMessage.message}</p>
+          <p>{user.emailMessage.message}</p>
           <CustomButton
             onClick={() => navigate('/')}
             containerStyles="inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none"

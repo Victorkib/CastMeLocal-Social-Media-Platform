@@ -13,8 +13,8 @@ import {
 import { suggest, requests, posts } from '../assets/data';
 import { Link } from 'react-router-dom';
 import { NoProfile } from '../assets';
-import { BsFiletypeGif, BsPersonFillAdd } from 'react-icons/bs';
-import { BiImages, BiSolidVideo } from 'react-icons/bi';
+// import { BsFiletypeGif, BsPersonFillAdd } from 'react-icons/bs';
+// import { BiImages, BiSolidVideo } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import Footer from '../components/NamsComponents/Footer';
 
@@ -22,9 +22,9 @@ const Home = () => {
   const { user, edit } = useSelector((state) => state.user);
   const [friendRequest] = useState(requests);
   const [suggestedFriends] = useState(suggest);
-  const [errMsg] = useState('');
-  const [setFile] = useState(null);
-  const [posting] = useState(false);
+  // const [errMsg] = useState('');
+  // const [setFile] = useState(null);
+  // const [posting] = useState(false);
   const [loading] = useState(false);
 
   const {
