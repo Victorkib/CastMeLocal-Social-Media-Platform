@@ -6,6 +6,7 @@ import { apiUrl } from '../../utils/api';
 
 const EmailClickVerification = () => {
   const { userId, token } = useParams();
+  console.log(userId);
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
@@ -21,9 +22,8 @@ const EmailClickVerification = () => {
 
         if (response.data.status === 'success') {
           // Redirect to home page after successful verification
-          setTimeout(() => {
-            navigate('/');
-          }, 3000);
+
+          navigate('/');
         }
       } catch (error) {
         setStatus('error');

@@ -76,6 +76,7 @@ module.exports.register = async (req, res) => {
 
     //Send verification email to the user
     const emailResult = await sendVerificationEmail(regUser);
+    console.log('results of SendEMail: ' + emailResult.emailMessage);
     if (!emailResult.success) {
       return res.status(500).json({
         success: false,
