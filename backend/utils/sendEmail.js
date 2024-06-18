@@ -69,7 +69,7 @@ async function sendNodemailerEmail(mailOptions) {
 exports.sendVerificationEmail = async (regUser) => {
   const { _id, email, lastName } = regUser;
   const token = _id + uuidv4();
-  const link = CL_URL + '/api/socials/users/verify/' + _id + '/' + token; //cl_URL is the hosted endpoint
+  const link = `${CL_URL}/api/socials/users/verify/${_id}/${token}`; //cl_URL is the hosted endpoint
   //http://localhost:5173/api/socials/users/verify/ + _id + '/' + token
   const mailOptions = {
     from: AUTH_EMAIL,
