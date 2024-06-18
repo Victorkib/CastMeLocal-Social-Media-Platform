@@ -83,7 +83,7 @@ function App() {
           element={verifData ? <VerificationPage /> : <Register />} //the page the user is sent after registering/Logging In
         />
         <Route //page user is to be sent after clinking the link in Email.
-          path="/api/socials/users/verify/:userId/:token"
+          path={`/api/socials/users/verify/:userId/:token`}
           element={<EmailClickVerification />}
         />
         <Route path="/register" element={<Register />} />
